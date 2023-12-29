@@ -7,7 +7,7 @@ export default {
         primaryColor: "#273775",
         secondaryColor: "#21285B",
         greenColor: "#159D00",
-        buttonColor: "EEB31E",
+        buttonColor: "#EEB31E",
         textColor: "#4E545F",
         headingColor: "#181A1E",
       },
