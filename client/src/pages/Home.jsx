@@ -150,14 +150,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-      <section>
-        <div className="container">
-          <div className="lg:w-[470px] mx-auto">
-            <h2 className="heading text-center"></h2>
-          </div>
-        </div>
-      </section>
     </>
   );
 };
