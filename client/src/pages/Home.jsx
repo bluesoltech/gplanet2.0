@@ -4,6 +4,7 @@ import ReactSwipe from "react-swipe";
 import Image1 from "../assets/images/Img1.jpg";
 import Image2 from "../assets/images/Img2.jpg";
 import Image3 from "../assets/images/Img3.jpg";
+import Testimonial from "../components/Testimonial/Testimonial";
 
 const Home = () => {
   let reactSwipeE1;
@@ -148,6 +149,19 @@ const Home = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Testimonial */}
+      <section className="">
+        <div className="container">
+          <div className="xl:w-[470px] mx-auto">
+            <h2 className="heading text-center">Our Past Participants</h2>
+            <p className="text_para text-center">
+              Green Planet Run was conducted on 13th November 2022
+            </p>
+          </div>
+          <Testimonial />
         </div>
       </section>
     </>
