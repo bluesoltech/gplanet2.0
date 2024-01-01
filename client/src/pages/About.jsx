@@ -1,5 +1,4 @@
 import React from "react";
-
 import Img1 from "../assets/images/gpr_logo.png";
 import OrganizerList from "../components/Organizer/OrganizerList";
 
