@@ -1,62 +1,62 @@
 const User = require('../models/UserSchema');
-const Admin = require('../models/AdminSchema')
-const jwt = require('jsonwebtoken');
-const password = require('password-hash-and-salt');
+const Admin = require('../models/AdminSchema');
+const bcrypt = require('bcrypt');
 
 const register = async (req, res) => {
-  const { name, email, password, cpassword } = req.body;
+  const { name, email, password, cpassword, role } = req.body;
 
   try {
-    let user = null
+    let user = null;
 
+    if (role === 'user') {
+      user = await User.findOne({ email });
+    } else if (role === 'admin') {
+      user = await Admin.findOne({ email });
+    }
+
+    // Check if user exists
     if (user) {
-      user = await User.findOne({ email })
-    }
-    else if (role == 'admin') {
-      user = Admin.findOne({ email })
+      return res.status(400).json({ success: false, message: 'User already exists' });
     }
 
-    //check if user exist
+    // Hash password
+    const salt = await bcrypt.genSalt(10);
+    if (password !== cpassword) {
+      return res.status(400).json({ success: false, message: 'Passwords do not match' });
+    }
+
+    const hashPassword = await bcrypt.hash(password, salt);
+
+    // Create and save user
     if (user) {
-      return res.status(400).json({ message: "User already exist" })
-    }
-
-    //hash password 
-    const salt = await bcrypt.genSalt(10)
-    if(password != cpassword){
-      res.status(400).json({ success: false, message: 'Password do not match' })
-    }
-
-    const hashPassword = await bcrypt.hash(password, salt)
-
-    if (role == 'user1') {
       user = new User({
         name,
         email,
         password: hashPassword,
-      })
+        cpassword: hashPassword
+      });
+    } else if (admin) {
+      admin = new Admin({
+        name,
+        email,
+        password: hashPassword,
+        cpassword: hashPassword
+      });
     }
-    // if (role == 'admin') {
-    //   user = new Admin({
-    //     name,
-    //     email,
-    //     password: hashPassword,
-    //     cpassword,
-    //   })
-    // }
-    await user.save()
-    res.status(200).json({ success: true, message: 'User successfully created' })
-  } catch (error) {
-    res.status(200).json({ success: true, message: 'Internal server error, Try again' })
+
+    await user.save();
+    return res.status(200).json({ success: true, message: 'User successfully created' });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ success: false, message: 'Internal server error. Try again.' });
   }
 };
 
 const login = (req, res) => {
-
+  
 };
-
 
 module.exports = {
   register,
-  login,
+  login
 };
