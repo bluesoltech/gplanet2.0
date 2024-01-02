@@ -1,19 +1,21 @@
-import mongoose from "mongoose";
+const mongoose = require ("mongoose");
 
 const AdminSchema = new mongoose.Schema({
+  name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  name: { type: String, required: true },
-  phone: { type: Number },
-  photo: { type: String },
-  role: {
-    type: String,
-  },
-  isApproved: {
-    type: String,
-    enum: ["pending", "approved", "cancelled"],
-    default: "pending",
-  },
+  cpassword: { type: String, required: true },
+  
+  // role: { type: String, required: true},
+  // phone: { type: Number },
+  // role: {
+  //   type: String,
+  // },
+  // isApproved: {
+  //   type: String,
+  //   enum: ["pending", "approved", "cancelled"],
+  //   default: "pending",
+  // },
 });
 
-export default mongoose.model("Admin", AdminSchema);
+module.exports = mongoose.model("Admin", AdminSchema);
