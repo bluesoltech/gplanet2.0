@@ -26,7 +26,7 @@ export const deleteUser = async (req, res) => {
 export const getSingleUser = async (req, res) => {
     const id = req.params.id
     try {
-        const user = await User.findById(id, )
+        const user = await User.findById(id).select("-password") 
 
         res.status(200).json({ success: true, message: 'User Found', data: user })
     } catch (error) {
@@ -36,7 +36,7 @@ export const getSingleUser = async (req, res) => {
 export const getAllUser = async (req, res) => {
     const id = req.params.id
     try {
-        const users = await User.find({})
+        const users = await User.find({}).select("-password")
 
         res.status(200).json({ success: true, message: 'User Found', data: users })
     } catch (error) {
