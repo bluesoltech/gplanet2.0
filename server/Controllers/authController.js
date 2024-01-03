@@ -3,6 +3,12 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import password from "password-hash-and-salt";
 
+const generateToken = (user) => {
+  return jwt.sign({ id: user._id }, process.env.JWT_SECRET_KEY, {
+    expiresIn: "20d",
+  });
+};
+
 export const register = async (req, res) => {
   // console.log("register");
   const { name, email, password, cpassword } = req.body;
@@ -38,7 +44,38 @@ export const register = async (req, res) => {
   }
 };
 
-export const login = (req, res) => {
+export const login = async (req, res) => {
+  const { email } = req.body;
   try {
-  } catch (err) {}
+    let user = null;
+    user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const isPasswordMatch = await bcrypt.compare(
+      req.body.password,
+      user.password
+    );
+
+    if (!isPasswordMatch) {
+      return res
+        .status(400)
+        .json({ status: false, message: "Invalid Credantials" });
+    }
+
+    const token = generateToken(user);
+
+    const { password, ...rest } = user._doc;
+
+    res.status(200).json({
+      status: true,
+      message: "Successfully login",
+      token,
+      data: { ...rest },
+    });
+  } catch (err) {
+    res.status(500).json({ status: false, message: "Failed to login" });
+  }
 };
