@@ -10,12 +10,8 @@ const generateToken = (user) => {
 };
 
 export const register = async (req, res) => {
-  // console.log("register");
   const { name, email, password, cpassword } = req.body;
-  // console.log(`${name}, ${email}, ${password}, ${cpassword} `);
-
   if (password != cpassword) {
-    // console.log("26");
     return res
       .status(400)
       .json({ success: false, message: "Password do not match" });
