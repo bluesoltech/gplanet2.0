@@ -5,7 +5,7 @@ const initialState = {
     localStorage.getItem("user") != undefined
       ? JSON.parse(localStorage.getItem("user"))
       : null,
-  token: localStorage.getItem("user") || null,
+  token: localStorage.getItem("token") || null,
 };
 
 export const authContext = createContext(initialState);
@@ -18,6 +18,7 @@ const authReducer = (state, action) => {
       };
 
     case "LOGIN_SUCCESS":
+      // console.log("login success", action.payload.token);
       return {
         user: action.payload.user,
         token: action.payload.token,
@@ -36,9 +37,12 @@ const authReducer = (state, action) => {
 export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
+  // localStorage.setItem("user", JSON.stringify(state.user));
+  // localStorage.setItem("token", state.token);
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(state.user));
-    localStorage.setItem("token", JSON.stringify(state.token));
+    localStorage.setItem("token", state.token);
+    // console.log(state.token);
   }, [state]);
 
   return (

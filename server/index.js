@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import authRoute from "./Routes/auth.js";
 import userRoute from "./Routes/user.js";
+import registerRoute from "./Routes/register.js";
 
 const router = express.Router();
 
@@ -28,7 +29,7 @@ const connectDB = async () => {
     await mongoose.connect(process.env.MONGO_URL);
     console.log("MongoDB Database is Connected");
   } catch (error) {
-    console.log("Database Connection failed");
+    console.log(error);
   }
 };
 
@@ -38,6 +39,7 @@ app.use(cookieParser());
 app.use(cors(corsOptions));
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/users", userRoute);
+app.use("/api/v1/verification", registerRoute);
 
 app.listen(port, () => {
   connectDB();

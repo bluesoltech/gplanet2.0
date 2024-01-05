@@ -2,19 +2,20 @@ import jwt from "jsonwebtoken";
 // import User from "../models/UserSchema.js";
 
 export const authenticate = async (req, res, next) => {
+  // console.log(req.headers.authorization);
   const authToken = req.headers.authorization;
-  if (!authToken || !authToken.startsWith("Bearer")) {
+  if (!authToken || !authToken.startsWith("Bearer ")) {
+    // console.log(authToken, "verify token");
     return res
       .status(401)
       .json({ success: false, message: "No token, authorization denied" });
   }
 
   try {
-    // console.log(authToken);
     const token = authToken.split(" ")[1];
+    // console.log(token);
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
-
     req.userId = decoded.id;
 
     next();
@@ -23,7 +24,7 @@ export const authenticate = async (req, res, next) => {
       return res.status(401).json({ message: "Token is expired" });
     }
 
-    return res.status(401).json({ success: false, message: "Invalid Token" });
+    return res.status(401).json({ success: false, message: err });
   }
 };
 

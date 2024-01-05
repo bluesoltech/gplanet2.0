@@ -1,7 +1,6 @@
 import User from "../models/UserSchema.js";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
-import password from "password-hash-and-salt";
 
 const generateToken = (user) => {
   return jwt.sign({ id: user._id }, process.env.JWT_SECRET_KEY, {
@@ -40,7 +39,7 @@ export const register = async (req, res) => {
       .status(200)
       .json({ success: true, message: "User successfully created" });
   } catch (error) {
-    res.status(500).json({ success: false, message: error });
+    res.status(500).json({ success: false, message: "Internal Server Error" });
   }
 };
 
