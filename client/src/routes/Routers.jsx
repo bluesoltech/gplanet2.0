@@ -11,7 +11,7 @@ import MyAccount from "../Dashboard/user-account/MyAccount";
 import { Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
 import Register from "../pages/Register";
-import Checkout from "../pages/Checkout";
+import Checkout from "../components/Registration/Checkout";
 
 const Routers = () => {
   return (
@@ -24,7 +24,6 @@ const Routers = () => {
       <Route path="/gallery" element={<Gallery />} />
       <Route path="/results" element={<Results />} />
       <Route path="/signup" element={<Signup />} />
-      <Route path="/checkout" element={<Checkout />} />
       <Route
         path="/register"
         element={

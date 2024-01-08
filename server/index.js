@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 import authRoute from "./Routes/auth.js";
 import userRoute from "./Routes/user.js";
 import registerRoute from "./Routes/register.js";
+import paymentRoute from "./Routes/payment.js";
 
 const router = express.Router();
 
@@ -39,7 +40,8 @@ app.use(cookieParser());
 app.use(cors(corsOptions));
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/users", userRoute);
-app.use("/api/v1/verification", registerRoute);
+app.use("/api/v1/register", registerRoute);
+app.use("/api/v1/cart", paymentRoute);
 
 app.listen(port, () => {
   connectDB();

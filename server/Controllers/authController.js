@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 
 const generateToken = (user) => {
+  // console.log(process.env.JWT_SECRET_KEY, "authController");
   return jwt.sign({ id: user._id }, process.env.JWT_SECRET_KEY, {
     expiresIn: "20d",
   });

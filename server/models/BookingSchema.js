@@ -71,18 +71,6 @@ const bookingSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  amountpaid: {
-    type: String,
-    default: null,
-  },
-  transactionId: {
-    type: String,
-    default: null,
-  },
-  isPaid: {
-    type: Boolean,
-    default: true,
-  },
 });
 
 export default mongoose.model("Booking", bookingSchema);
