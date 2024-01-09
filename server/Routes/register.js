@@ -8,11 +8,10 @@ import express from "express";
 //   getMyTickets,
 // } from "../Controllers/userController.js";
 import { authenticate } from "../auth/verifyToken.js";
-import { verification, checkout } from "../Controllers/registerController.js";
+import { verification } from "../Controllers/registerController.js";
 
 const router = express.Router();
 
 router.post("/", authenticate, verification);
-router.post("/checkout", authenticate, checkout);
 
 export default router;

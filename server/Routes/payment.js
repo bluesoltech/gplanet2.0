@@ -9,7 +9,7 @@ import {
 const router = express.Router();
 
 router.post("/checkout", authenticate, checkout);
-router.post("/paymentverify", authenticate, paymentverification);
+router.post("/paymentverify", paymentverification);
 router.get("/getkey", authenticate, getkey);
 
 export default router;
