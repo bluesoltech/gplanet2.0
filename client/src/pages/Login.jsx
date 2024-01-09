@@ -25,22 +25,6 @@ const Login = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     setLoading(true);
-    if (formData.email == "test@gmail.com" && formData.password == "test") {
-      dispatch({
-        type: "LOGIN_SUCCESS",
-        payload: {
-          user: { name: "test", email: "test@gmail.com" },
-          token: { token: "00000" },
-        },
-      });
-
-      // console.log(result, "login data");
-
-      setLoading(false);
-      toast.success("Login Success");
-      navigate("/home");
-      return;
-    }
 
     try {
       const res = await fetch(`${BASE_URL}/auth/login`, {
@@ -53,9 +37,13 @@ const Login = () => {
 
       const result = await res.json();
 
+      // console.log(result);
+
       if (!res.ok) {
         throw new Error(result.message);
       }
+
+      // console.log("result token ", result.token);
 
       dispatch({
         type: "LOGIN_SUCCESS",
@@ -65,7 +53,7 @@ const Login = () => {
         },
       });
 
-      console.log(result, "login data");
+      // console.log(result, "login data");
 
       setLoading(false);
       toast.success(result.message);

@@ -1,5 +1,6 @@
 import React from "react";
 import ReactSwipe from "react-swipe";
+import { Link } from "react-router-dom";
 
 import Image1 from "../assets/images/Img1.jpg";
 import Image2 from "../assets/images/Img2.jpg";
@@ -99,7 +100,9 @@ const Home = () => {
                   particles.
                 </p>
 
-                <button className="btn">Register Now</button>
+                <Link to="/register">
+                  <button className="btn">Register</button>
+                </Link>
               </div>
 
               <div className="mt-[30px] lg:mt-[70px] flex flex-col lg:flex-row lg:items-center gap-5 lg:gap-[30px]">

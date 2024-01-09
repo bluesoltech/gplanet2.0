@@ -2,7 +2,6 @@ import React from "react";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { HiStar } from "react-icons/hi";
-import Img from "../../assets/images/patient-avatar.png";
 import { testimonial } from "../../assets/data/testimonial";
 
 import "swiper/css";

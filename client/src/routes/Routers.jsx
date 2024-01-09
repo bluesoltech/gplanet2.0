@@ -6,10 +6,12 @@ import Results from "../pages/Results";
 import Login from "../pages/Login";
 import Error from "../pages/Error";
 import Signup from "../pages/Signup";
-import AdminDetail from "../pages/Admin/AdminDetail";
-import Admin from "../pages/Admin/Admin";
+import MyAccount from "../Dashboard/user-account/MyAccount";
 
 import { Routes, Route } from "react-router-dom";
+import ProtectedRoute from "./ProtectedRoute";
+import Register from "../pages/Register";
+import Checkout from "../components/Registration/Checkout";
 
 const Routers = () => {
   return (
@@ -22,8 +24,23 @@ const Routers = () => {
       <Route path="/gallery" element={<Gallery />} />
       <Route path="/results" element={<Results />} />
       <Route path="/signup" element={<Signup />} />
-      <Route path="/admin" element={<Admin />} />
-      <Route path="/admin/:id" element={<AdminDetail />} />
+      <Route
+        path="/register"
+        element={
+          <ProtectedRoute>
+            <Register />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/users/profile/me"
+        element={
+          <ProtectedRoute>
+            <MyAccount />
+          </ProtectedRoute>
+        }
+      />
+
       <Route path="*" element={<Error />} />
     </Routes>
   );
