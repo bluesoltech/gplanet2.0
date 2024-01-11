@@ -11,6 +11,9 @@ import {
   AiOutlineInstagram,
 } from "react-icons/ai";
 
+
+
+
 const socialLinks = [
   {
     path: "",
@@ -295,6 +298,7 @@ const Footer = () => {
             </ul>
           </div>
         </div>
+     
       </div>
       {isPopupOpen && (
         <div className="popup fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-[99999] shadow-xs">
