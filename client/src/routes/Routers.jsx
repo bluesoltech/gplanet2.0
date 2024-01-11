@@ -7,6 +7,7 @@ import Login from "../pages/Login";
 import Error from "../pages/Error";
 import Signup from "../pages/Signup";
 import MyAccount from "../Dashboard/user-account/MyAccount";
+import PaySuccs from "../pages/PaySuccs";
 
 import { Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
@@ -24,6 +25,7 @@ const Routers = () => {
       <Route path="/gallery" element={<Gallery />} />
       <Route path="/results" element={<Results />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="/paymentsuccess" element={<PaySuccs/>} />
       <Route
         path="/register"
         element={
