@@ -59,6 +59,7 @@ export const paymentverification = async (req, res) => {
     ePhone: temp.data.ePhone,
     eName: temp.data.eName,
     eRelation: temp.data.eRelation,
+    paid: true
   });
 
   if (isauth) {

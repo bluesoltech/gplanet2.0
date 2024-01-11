@@ -2,7 +2,11 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    
     extend: {
+      screens:{
+        'tablet': '500px',
+      },
       colors: {
         primaryColor: "#273775",
         secondaryColor: "#21285B",

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useContext } from "react";
 import logo from "../../assets/images/logo.png";
+import logo2 from "../../assets/images/Logo2.png";
 import { NavLink, Link } from "react-router-dom";
 import { BiMenu } from "react-icons/bi";
 import { authContext } from "../../context/AuthContext";
@@ -50,15 +51,15 @@ const Header = () => {
   const toggleMenu = () => menuRef.current.classList.toggle("show_menu");
 
   return (
-    <header className="header flex items-center" ref={headerRef}>
+    <header className="header flex items-center bg-white" ref={headerRef}>
       <div className="container">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <img src={logo} alt="" className="max-w-[40%] max-h-[40%] " />
+            <img src={logo2} alt="" className="max-w-[80%] tablet:max-w-[60%] md:max-w-[30%]" />
           </div>
 
           <div className="navigation" ref={menuRef} onClick={toggleMenu}>
-            <ul className="menu flex items-center gap-[2.7rem]">
+            <ul className="menu mx-5 flex items-center gap-[2.7rem]">
               {navLinks.map((link, index) => (
                 <li key={index}>
                   <NavLink
