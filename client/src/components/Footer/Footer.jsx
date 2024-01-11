@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 import { RiLinkedinFill, RiTwitterXFill } from "react-icons/ri";
@@ -8,6 +7,9 @@ import {
   AiFillFacebook,
   AiOutlineInstagram,
 } from "react-icons/ai";
+
+
+
 
 const socialLinks = [
   {
@@ -76,6 +78,7 @@ const quickLinks03 = [
 
 const Footer = () => {
   const year = new Date().getFullYear;
+
   return (
     <footer className="pb-16 pt-10">
       <div className="container">
@@ -153,6 +156,7 @@ const Footer = () => {
             </ul>
           </div>
         </div>
+     
       </div>
     </footer>
   );
