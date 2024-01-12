@@ -208,7 +208,7 @@ const Footer = () => {
   return (
     <footer className="pb-16 pt-10">
       <div className="container">
-        <div className="flex justify-between flex-col md:flex-row flex-wrap gap-[30px]">
+        <div className="flex justify-between flex-col md:flex-row flex-nowwrap gap-[30px]">
           <div>
             <img className="max-w-[200px]" src={logo} alt="logo" />
             <p className="text-[16px] leading-7 font-[400] text-textColor mt-4">
@@ -295,12 +295,9 @@ const Footer = () => {
                   </Link>
                 </li>
               ))}
+              
             </ul>
-          </div>
-        </div>
-     
-      </div>
-      {isPopupOpen && (
+            {isPopupOpen && (
         <div className="popup fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-[99999] shadow-xs">
           <div ref={wrapperRef} className="bg-gray-100 rounded-md w-[1000px] xsm:w-[250px] md:w-[850px] max-h-[600px] h-auto overflow-y-auto overflow-x-hidden">
             <div className="flex w-full p-2 m-0 items-center bg-white text-black shadow-lg">
@@ -320,6 +317,11 @@ const Footer = () => {
           </div>
         </div>
       )}
+          </div>
+        </div>
+     
+      </div>
+   
     </footer>
   );
 };

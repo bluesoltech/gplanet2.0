@@ -81,10 +81,23 @@ body{
     display: block;
 }
 }
-/* PaymentSuccess.css or your preferred CSS file */
-.bounce-in {
-    animation: bounce-in 3.3s cubic-bezier(0.215, 0.61, 0.355, 1);
-  }
-  
+.button .top{
+  background: #EEB31E;
+  color:white;
+  font-size: 20px;
+  padding: 5px 20px
+}
+.button .bottom{
+  background:#ebe9e9;
+  padding: 5px 20px;
+  font-size: 20px;
+}
+.button{
+  padding:0;
+box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px; 
+  border-radius:15px;
+  overflow:hidden;
+}
 
-  
+.button:active{
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;}
