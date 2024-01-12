@@ -73,8 +73,10 @@ export const getUserProfile = async (req, res) => {
 };
 
 export const getMyTickets = async (req, res) => {
+  console.log(req.userId)
   try {
     const booking = await Booking.find({ user: req.userId });
+    console.log(booking)
     res.status(200).json({
       success: true,
       message: "Getting Tickets",
