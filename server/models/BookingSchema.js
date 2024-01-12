@@ -53,10 +53,14 @@ const bookingSchema = new mongoose.Schema({
   pin: {
     type: String,
     required: true,
+    minlength: 6,
+    maxlength: 6,
   },
   ePhone: {
     type: String,
     required: true,
+    minlength: 10,
+    maxlength: 10,
   },
   eName: {
     type: String,
@@ -68,7 +72,6 @@ const bookingSchema = new mongoose.Schema({
   },
   paid: {
     type: Boolean,
-    default: false,
     required: true,
   },
   createdAt: {

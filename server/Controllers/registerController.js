@@ -16,7 +16,7 @@ function calculateAge(birthDateObject) {
 
 export const verification = async (req, res) => {
   // console.log("register");
-  const { email, phone, dob, category } = req.body;
+  const { email, phone, dob, category, ePhone, pin } = req.body;
   // const {
   //   user,
   //   name,
@@ -43,6 +43,26 @@ export const verification = async (req, res) => {
     return res.status(400).json({
       success: false,
       message: "Doesn't meet the minimum age requirement",
+    });
+  }
+  if (phone.length != 10) {
+    // console.log("26");
+    return res.status(400).json({
+      success: false,
+      message: "Wrong Phone Number",
+    });
+  }if (pin.length != 6) {
+    // console.log("26");
+    return res.status(400).json({
+      success: false,
+      message: "Wrong Zip Code",
+    });
+  }
+  if (ePhone.length != 10) {
+    // console.log("26");
+    return res.status(400).json({
+      success: false,
+      message: "Wrong Emergency Phone Number",
     });
   }
 

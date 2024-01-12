@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import HashLoader from "react-spinners/HashLoader";
 const Signup = () => {
   const [loading, setLoading] = useState(false);
+  const [strongpass, setStrongpass] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -20,11 +21,14 @@ const Signup = () => {
       [e.target.name]: e.target.value,
     });
   };
+  const handleVerification = (e) => {
+    e.preventDefault();
+    console.log("verifying..")
+  };
 
   const submitHandler = async (e) => {
     e.preventDefault();
     setLoading(true);
-
     try {
       const res = await fetch(`${BASE_URL}/auth/signup`, {
         method: "POST",
@@ -44,7 +48,11 @@ const Signup = () => {
       toast.success(message);
       navigate("/login");
     } catch (err) {
+      console.log(err)
       toast.error(err.message);
+      if(err.message == "Password is not strong enough"){
+        setStrongpass(true)
+      }
       setLoading(false);
     }
   };
@@ -64,6 +72,7 @@ const Signup = () => {
                 </label>
                 <div className="flex flex-col items-start">
                   <input
+                  required
                     type="text"
                     name="name"
                     value={formData.name}
@@ -79,15 +88,20 @@ const Signup = () => {
                 >
                   Email
                 </label>
-                <div className="flex flex-col items-start">
+                <div className="flex flex-row items-center justify-between">
                   <input
+                  required
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="block w-full mt-1 border-[1px] border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                    className="block w-[80%] mt-1 border-[1px] border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                   />
+                  
+                  <button className="w-[15%] mt-1 bg-white border-[1px] border-gray-300 rounded hover:bg-gray-200" onClick={handleVerification}> Verify </button>
+                
                 </div>
+                
               </div>
               <div className="mt-4">
                 <label
@@ -96,8 +110,10 @@ const Signup = () => {
                 >
                   Password
                 </label>
+                {strongpass? (<p className="text-textColor text-[10px]">Password should contain at least one digit, one special character, one lowercase letter, and one uppercase letter, with a minimum length of 8 characters</p>): (<p></p>)}
                 <div className="flex flex-col items-start">
                   <input
+                  required
                     type="password"
                     name="password"
                     value={formData.password}
@@ -115,6 +131,7 @@ const Signup = () => {
                 </label>
                 <div className="flex flex-col items-start">
                   <input
+                  required
                     type="password"
                     name="cpassword"
                     value={formData.cpassword}
