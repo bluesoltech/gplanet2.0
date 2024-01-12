@@ -16,23 +16,23 @@ import {
 
 const socialLinks = [
   {
-    path: "",
+    path: "https://www.youtube.com/@GreenPlanetRun",
     icon: <AiFillYoutube className="group-hover:text-white w-4 h-5" />,
   },
   {
-    path: "",
+    path: "https://www.facebook.com/GreenPlanetRunAhmedabad",
     icon: <AiFillFacebook className="group-hover:text-white w-4 h-5" />,
   },
   {
-    path: "",
+    path: "https://www.linkedin.com/company/greenplanetrun/",
     icon: <RiLinkedinFill className="group-hover:text-white w-4 h-5" />,
   },
   {
-    path: "",
+    path: "https://www.instagram.com/green_planet_run/",
     icon: <AiOutlineInstagram className="group-hover:text-white w-4 h-5" />,
   },
   {
-    path: "",
+    path: "https://twitter.com/Greenplanetrun",
     icon: <RiTwitterXFill className="group-hover:text-white w-4 h-5" />,
   },
 ];
@@ -184,16 +184,11 @@ const Footer = () => {
   const year = new Date().getFullYear;
   function useOutsideAlerter(ref) {
     useEffect(() => {
-      /**
-       * Alert if clicked on outside of element
-       */
+
       function handleClickOutside(event) {
         if (ref.current && !ref.current.contains(event.target)) {
-
-
           setPopupOpen(false);
           setSelectedLink(null);
-
         }
       }
       // Bind the event listener
@@ -208,9 +203,9 @@ const Footer = () => {
   return (
     <footer className="pb-16 pt-10">
       <div className="container">
-        <div className="flex justify-between flex-col md:flex-row flex-wrap gap-[30px]">
+        <div className="flex justify-between flex-col md:flex-row flex-nowwrap gap-[30px]">
           <div>
-            <img className="max-w-[200px]" src={logo} alt="logo" />
+            <img className="max-w-[200px]" src={logo} alt="logo"/>
             <p className="text-[16px] leading-7 font-[400] text-textColor mt-4">
               Copyright © {year} developed by Blue Soltech PVT. LTD. ALL rights
               reserved.
