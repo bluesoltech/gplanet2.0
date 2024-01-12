@@ -49,14 +49,19 @@ export const register = async (req, res) => {
       email,
       password: hashPassword,
     });
-    temp = await user.save();
+    // console.log(user);
+    let temp = await user.save();
+    // console.log(temp, "temp");
 
     const token = await new Token({
       userId: temp._id,
       token: crypto.randomBytes(32).toString("hex"),
     }).save();
+    // console.log(token);
 
     const url = `http://localhost:5173/user/${temp._id}/verify/${token.token}`;
+
+    // console.log(url);
     await sendEmail(user.email, "Verify Email: Green Planet Run", url);
 
     res.status(200).json({
@@ -64,6 +69,7 @@ export const register = async (req, res) => {
       message: "An Email has been sent. Please Verify",
     });
   } catch (error) {
+    console.log(error);
     res.status(500).json({ success: false, message: "Internal Server Error" });
   }
 };
@@ -97,7 +103,7 @@ export const login = async (req, res) => {
           token: crypto.randomBytes(32).toString("hex"),
         }).save();
         const url = `${process.env.BASE_URL}users/${user.id}/verify/${token.token}`;
-        await sendEmail(user.email, "Verify Email", url);
+        await sendEmail(user.email, "Verify Email: Green Planet Run", url);
       }
 
       return res
@@ -121,6 +127,69 @@ export const login = async (req, res) => {
 };
 export const verify = async (req, res) => {
   try {
+    // console.log("Entered Verification");
+    const user = await User.findOne({ _id: req.params.id });
+    // console.log("user", user);
+    if (user.verified == true) {
+      return res.status(200).send({ message: "Already Verified" });
+    }
+    if (!user) return res.status(400).send({ message: "Invalid link" });
+
+    const token = await Token.findOne({
+      userId: user._id,
+      token: req.params.token,
+    });
+    // console.log("token", token);
+    if (!token) return res.status(400).send({ message: "Invalid link" });
+
+    await User.updateOne({ _id: user._id }, { $set: { verified: true } });
+    // console.log("Updated");
+    await Token.deleteOne({ _id: token._id });
+
+    res.status(200).send({ message: "Email verified successfully" });
+  } catch (error) {
+    // console.log(error);
+    res.status(500).send({ message: "Internal Server Error" });
+  }
+};
+
+export const forgot = async (req, res) => {
+  // console.log("Entered Forgot");
+  const { email } = req.body;
+  try {
+    let user = null;
+    user = await User.findOne({ email });
+    // console.log("user", user);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    if (!user.verified) {
+      return res.status(404).json({ message: "Email was not verified" });
+      //resend verification mail
+    }
+    const token = await new Token({
+      userId: user._id,
+      token: crypto.randomBytes(32).toString("hex"),
+    }).save();
+    // console.log("token", token);
+    const url = `http://localhost:5173/user/${user._id}/forgot/${token.token}`;
+
+    // console.log(url);
+    await sendEmail(user.email, "Change Password: Green Planet Run", url);
+
+    res.status(200).json({
+      success: true,
+      message: "An Email has been sent to change the Password",
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ status: false, message: "Failed to send" });
+  }
+};
+
+export const change = async (req, res) => {
+  try {
     const user = await User.findOne({ _id: req.params.id });
     if (!user) return res.status(400).send({ message: "Invalid link" });
 
@@ -128,13 +197,16 @@ export const verify = async (req, res) => {
       userId: user._id,
       token: req.params.token,
     });
+    // console.log("token", token);
     if (!token) return res.status(400).send({ message: "Invalid link" });
 
-    await User.updateOne({ _id: user._id, verified: true });
-    await token.remove();
+    await User.updateOne({ _id: user._id }, { $set: { verified: true } });
+    // console.log("Updated");
+    await Token.deleteOne({ _id: token._id });
 
     res.status(200).send({ message: "Email verified successfully" });
   } catch (error) {
+    // console.log(error);
     res.status(500).send({ message: "Internal Server Error" });
   }
 };

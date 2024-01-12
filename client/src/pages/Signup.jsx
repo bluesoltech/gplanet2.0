@@ -95,11 +95,8 @@ const Signup = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="block w-[80%] mt-1 border-[1px] border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                  />
-                  
-                  <button className="w-[15%] mt-1 bg-white border-[1px] border-gray-300 rounded hover:bg-gray-200" onClick={handleVerification}> Verify </button>
-                
+                    className="block w-full mt-1 border-[1px] border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                  />                
                 </div>
                 
               </div>

@@ -8,10 +8,13 @@ export const sendEmail = async (email, subject, text) => {
       port: Number(process.env.EMAIL_PORT),
       secure: Boolean(process.env.SECURE),
       auth: {
-        user: process.env.USER,
-        pass: process.env.PASS,
+        user: String(process.env.USER),
+        pass: String(process.env.PASS),
       },
     });
+
+    // console.log(process.env.USER);
+    // console.log(process.env.PASS);
 
     await transporter.sendMail({
       from: process.env.USER,
