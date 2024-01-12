@@ -2,9 +2,14 @@ import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { discounts } from "../../assets/data/coupon";
 
-function GST(num) {
-  return num + 0.18 * num;
+function roundup(number) {
+  const factor = 10 ** 2;
+  return Math.ceil(number * factor) / factor;
 }
+function GST(num) {
+  return roundup(num + 0.18 * num);
+}
+
 
 const Checkout = ({ data, checkoutHandler }) => {
   const [dis, setDis] = useState(0);
@@ -23,7 +28,7 @@ const Checkout = ({ data, checkoutHandler }) => {
     setValid(false);
     setDis(0);
     setCoupon("");
-    setTotal(GST(mrp));
+    setTotal(roundup(GST(mrp)));
   };
 
   const handleCouponSubmit = async () => {
@@ -39,13 +44,13 @@ const Checkout = ({ data, checkoutHandler }) => {
       // console.log(valid);
       toast.success("Valid Coupon");
       if (discount.type === "value") {
-        setDis(discount.value);
+        setDis(roundup(discount.value));
         let price = GST(mrp - discount.value);
-        setTotal(price);
+        setTotal(roundup(price));
         // console.log(total);
       } else {
-        setDis(mrp * discount.value);
-        setTotal(GST(mrp - mrp * discount.value));
+        setDis(roundup(mrp * discount.value));
+        setTotal(roundup(GST(mrp - mrp * discount.value)));
       }
     } else {
       toast.error("Invalid Coupon");
@@ -170,13 +175,13 @@ const Checkout = ({ data, checkoutHandler }) => {
               <div className="flex justify-between w-full items-center">
                 <p className="text-lg leading-4 text-gray-600">Sub total </p>
                 <p className="text-lg font-semibold leading-4 text-gray-600">
-                  ₹{mrp - dis}
+                  ₹{roundup(mrp - dis)}
                 </p>
               </div>
               <div className="flex justify-between w-full items-center">
                 <p className="text-lg leading-4 text-gray-600">GST</p>
                 <p className="text-lg font-semibold leading-4 text-gray-600">
-                  ₹{(mrp - dis) * 0.18}
+                  ₹{roundup((mrp - dis) * 0.18)}
                 </p>
               </div>
             </div>
