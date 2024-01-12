@@ -20,6 +20,8 @@ const MyAccount = () => {
     error,
   } = useGetProfile(`${BASE_URL}/users/profile/me`);
 
+  // console.log(userData)
+
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
   };
@@ -67,7 +69,7 @@ const MyAccount = () => {
             </div>
 
             <div className="md:col-span-2 md:px-[30px]">
-              <div>
+              <div className="flex justify-center">
                 <button
                   onClick={() => setTab("bookings")}
                   className={`${
@@ -77,19 +79,9 @@ const MyAccount = () => {
                 >
                   My Ticket
                 </button>
-                {/* <button
-                  disabled
-                  onClick={() => setTab("settings")}
-                  className={`${
-                    tab === "settings" &&
-                    "bg-primaryColor text-white font-normal"
-                  } py-2 px-5 rounded-md text-headingColor font-semibold text-[16px] leading-7 border border-solid border-primaryColor`}
-                >
-                  Profile Settings
-                </button> */}
               </div>
 
-              {tab === "bookings" && <MyTicket />}
+              {tab === "bookings" && <MyTicket id={userData._id}/>}
               {/* {tab === "settings" && <Profile user={userData} />} */}
             </div>
           </div>
