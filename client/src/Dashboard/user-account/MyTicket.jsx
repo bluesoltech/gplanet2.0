@@ -6,14 +6,14 @@ import Ticket from "../../components/Ticket/Ticket";
 
 const MyTicket = ({ id }) => {
   const [tickets, setTickets] = useState([]);
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
   const token = localStorage.getItem("token");
+
   useEffect(() => {
     handleTicket();
-  }, [])
+  }, []);
 
   const handleTicket = async () => {
-
     try {
       const res = await fetch(`${BASE_URL}/users/tickets/my-ticket`, {
         method: "get",
@@ -30,14 +30,14 @@ const MyTicket = ({ id }) => {
         throw new Error(data.message);
       }
       // console.log(data.data)
-      setTickets(data.data)
+      setTickets(data.data);
       setLoading(false);
       // toast.success(data.message);
     } catch (err) {
       toast.error(err.message);
       setLoading(false);
     }
-  }
+  };
   // console.log(id)
   return (
     <section>
@@ -46,16 +46,17 @@ const MyTicket = ({ id }) => {
           <h2 className="text-textColor">Loading..</h2>
         ) : (
           tickets.map((ticket) => (
-            <div key={ticket._id} className="text-textColor pt-[15px] flex justify-center">
-              <Ticket data = {ticket}/>
+            <div
+              key={ticket._id}
+              className="text-textColor pt-[15px] flex justify-center"
+            >
+              <Ticket data={ticket} />
             </div>
           ))
         )}
       </div>
-
     </section>
   );
-
 };
 
 export default MyTicket;

@@ -61,8 +61,9 @@ export const register = async (req, res) => {
 
     const url = `http://localhost:5173/user/${temp._id}/verify/${token.token}`;
 
-    // console.log(url);
-    await sendEmail(user.email, "Verify Email: Green Planet Run", url);
+    const html = `<h2>Hi ${temp.name}! Thanks for registering on our site </h2><h4> Please verfiy your mail to continue... </h4><a href=${url} >Verify your Email</a>`;
+    // console.log(html);
+    await sendEmail(temp.email, "Verify Email: Green Planet Run", html);
 
     res.status(200).json({
       success: true,
@@ -102,8 +103,11 @@ export const login = async (req, res) => {
           userId: user._id,
           token: crypto.randomBytes(32).toString("hex"),
         }).save();
-        const url = `${process.env.BASE_URL}users/${user.id}/verify/${token.token}`;
-        await sendEmail(user.email, "Verify Email: Green Planet Run", url);
+        const url = `http://localhost:5173/user/${user.id}/verify/${token.token}`;
+        // console.log(url);
+        const content = `<h2>Hi ${user.name}! Thanks for registering on our site </h2><h4> Please verfiy your mail to continue... </h4><a href=${url} >Verify your Email</a>`;
+        // console.log(content);
+        await sendEmail(user.email, "Verify Email: Green Planet Run", content);
       }
 
       return res
@@ -122,6 +126,7 @@ export const login = async (req, res) => {
       data: { ...rest },
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json({ status: false, message: "Failed to login" });
   }
 };
@@ -166,17 +171,21 @@ export const forgot = async (req, res) => {
 
     if (!user.verified) {
       return res.status(404).json({ message: "Email was not verified" });
-      //resend verification mail
+      // resend verification mail
     }
-    const token = await new Token({
-      userId: user._id,
-      token: crypto.randomBytes(32).toString("hex"),
-    }).save();
-    // console.log("token", token);
+    let token = await Token.findOne({ userId: user._id });
+    if (!token) {
+      token = await new Token({
+        userId: user._id,
+        token: crypto.randomBytes(32).toString("hex"),
+      }).save();
+    }
     const url = `http://localhost:5173/user/${user._id}/forgot/${token.token}`;
 
-    // console.log(url);
-    await sendEmail(user.email, "Change Password: Green Planet Run", url);
+    const html = `<h2>Hi ${user.name}! </h2>
+                  <h4> Please change your password with this link </h4>
+                  <a href=${url} >Change your Password</a>`;
+    await sendEmail(user.email, "Change Password: Green Planet Run", html);
 
     res.status(200).json({
       success: true,
@@ -189,9 +198,12 @@ export const forgot = async (req, res) => {
 };
 
 export const change = async (req, res) => {
+  // console.log(req.body);
+  const { newPassword, confirmPassword } = req.body;
   try {
     const user = await User.findOne({ _id: req.params.id });
     if (!user) return res.status(400).send({ message: "Invalid link" });
+    // console.log("26");
 
     const token = await Token.findOne({
       userId: user._id,
@@ -199,14 +211,35 @@ export const change = async (req, res) => {
     });
     // console.log("token", token);
     if (!token) return res.status(400).send({ message: "Invalid link" });
+    // console.log("27");
 
-    await User.updateOne({ _id: user._id }, { $set: { verified: true } });
+    if (!isStrongPassword(newPassword)) {
+      return res
+        .status(401)
+        .json({ success: false, message: "Password is not strong enough" });
+    }
+    // console.log("28");
+    if (newPassword != confirmPassword) {
+      return res
+        .status(400)
+        .json({ success: false, message: "Password do not match" });
+    }
+
+    // console.log("29");
+    const salt = await bcrypt.genSalt(10);
+    const hashPassword = await bcrypt.hash(newPassword, salt);
+
+    // console.log("30");
+    await User.updateOne(
+      { _id: user._id },
+      { $set: { password: hashPassword } }
+    );
     // console.log("Updated");
     await Token.deleteOne({ _id: token._id });
 
-    res.status(200).send({ message: "Email verified successfully" });
+    res.status(200).send({ message: "Password updated successfully" });
   } catch (error) {
-    // console.log(error);
+    console.log(error);
     res.status(500).send({ message: "Internal Server Error" });
   }
 };

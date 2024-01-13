@@ -1,8 +1,9 @@
 import React, { useContext, useState } from "react";
-import img from "../../assets/images/avatar.jpg"
+import img from "../../assets/images/avatar.jpg";
 import { authContext } from "../../context/AuthContext";
 import Loading from "../../components/Loader/Loading";
 import Error from "../../components/Error/Error";
+import { toast } from "react-toastify";
 
 import MyTicket from "./MyTicket";
 import Profile from "./Profile";
@@ -20,11 +21,40 @@ const MyAccount = () => {
     error,
   } = useGetProfile(`${BASE_URL}/users/profile/me`);
 
-  // console.log(userData)
+  // console.log(userData);
 
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
   };
+
+  const handleChangePass = async (e) => {
+    e.preventDefault();
+    const data = {
+      email: userData.email,
+    };
+    try {
+      const res = await fetch(`${BASE_URL}/auth/forgot`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await res.json();
+
+      // console.log(result);
+
+      if (!res.ok) {
+        throw new Error(result.message);
+      }
+      toast.success(result.message);
+      dispatch({ type: "LOGOUT" });
+    } catch (err) {
+      toast.error(err.message);
+    }
+  };
+
   return (
     <section>
       <div className="max-w-[1170px] px-5 mx-auto">
@@ -62,8 +92,11 @@ const MyAccount = () => {
                 >
                   Logout
                 </button>
-                <button className="w-full bg-red-600 mt-4 p-3 text-[16px] leading-7 rounded-md text-white">
-                  Delete Account
+                <button
+                  onClick={handleChangePass}
+                  className="w-full bg-red-600 mt-4 p-3 text-[16px] leading-7 rounded-md text-white"
+                >
+                  Change Password
                 </button>
               </div>
             </div>
@@ -81,8 +114,7 @@ const MyAccount = () => {
                 </button>
               </div>
 
-              {tab === "bookings" && <MyTicket id={userData._id}/>}
-              {/* {tab === "settings" && <Profile user={userData} />} */}
+              {tab === "bookings" && <MyTicket id={userData._id} />}
             </div>
           </div>
         )}

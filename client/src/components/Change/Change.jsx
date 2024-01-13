@@ -1,29 +1,26 @@
 import { useState, useEffect, Fragment } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+
 import { BASE_URL } from "../../config.js";
-import axios from "axios";
+import HashLoader from "react-spinners/HashLoader";
 const Change = () => {
   const [formData, setFormData] = useState({
-    email: "",
+    newPassword: "",
+    confirmPassword: "",
   });
+  const [loading, setLoading] = useState(false);
+
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   const navigate = useNavigate();
   // const [validUrl, setValidUrl] = useState(false);
   const param = useParams();
-  // useEffect(() => {
-  //   const verifyEmailUrl = async () => {
-  //     // console.log(param.id)
-  //     try {
-  //       const url = `${BASE_URL}/auth/${param.id}/change/${param.token}`;
-  //       const { data } = await axios.get(url);
-  //       console.log(data);
-  //       setValidUrl(true);
-  //     } catch (error) {
-  //       console.log(error);
-  //       setValidUrl(false);
-  //     }
-  //   };
-  //   verifyEmailUrl();
-  // }, [param]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,27 +40,13 @@ const Change = () => {
 
       const result = await res.json();
 
-      // console.log(result);
-
       if (!res.ok) {
         throw new Error(result.message);
       }
 
-      // console.log("result token ", result.token);
-
-      dispatch({
-        type: "LOGIN_SUCCESS",
-        payload: {
-          user: result.data,
-          token: result.token,
-        },
-      });
-
-      // console.log(result, "login data");
-
       setLoading(false);
       toast.success(result.message);
-      navigate("/home");
+      navigate("/login");
     } catch (err) {
       toast.error(err.message);
       setLoading(false);
@@ -76,15 +59,32 @@ const Change = () => {
       <form className="w-[40%] bg-white" onSubmit={handleSubmit}>
         <div className="flex flex-col">
           <label className="text-textColor">New Password</label>
-          <input className="border-[1px] border-textColor" />
+          <input
+            className="border-[1px] border-textColor"
+            name="newPassword"
+            type="password"
+            value={formData.newPassword}
+            onChange={handleInputChange}
+            required
+          />
         </div>
         <div className="flex flex-col">
           <label className="text-textColor">Rewrite New Password</label>
-          <input className="border-[1px] border-textColor" />
+          <input
+            className="border-[1px] border-textColor"
+            name="confirmPassword"
+            type="password"
+            value={formData.confirmPassword}
+            onChange={handleInputChange}
+            required
+          />
         </div>
-        <div className="flex justify-center mt-20">
-          <button className="w-[20%] bg-yellow-200 rounded-xl hover:bg-yellow-300">
-            Submit
+        <div className="mt-4">
+          <button
+            type="submit"
+            className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            {loading ? <HashLoader size={25} color="#fff" /> : "Submit"}
           </button>
         </div>
       </form>
