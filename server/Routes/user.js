@@ -6,7 +6,6 @@ import {
   getSingleUser,
   getUserProfile,
   getMyTickets,
-  getMyPay,
 } from "../Controllers/userController.js";
 import { authenticate } from "../auth/verifyToken.js";
 
@@ -16,7 +15,7 @@ router.get("/:id", authenticate, getSingleUser);
 router.get("/", authenticate, getAllUser);
 router.get("/profile/me", authenticate, getUserProfile);
 router.get("/tickets/my-ticket", authenticate, getMyTickets);
-router.get("/getpayinfo", authenticate, getMyPay);
+
 router.put("/:id", authenticate, updateUser);
 router.delete("/:id", authenticate, deleteUser);
 

@@ -3,37 +3,50 @@ import fiverun from "../../assets/images/Gallery/fiverun.jpg";
 import tenrun from "../../assets/images/Gallery/tenrun.jpg";
 import Pdffile from "../Pdf/Pdffile.jsx";
 import { PDFDownloadLink } from "@react-pdf/renderer";
-import { BASE_URL } from "../../config";
+// import { BASE_URL } from "../../config";
 
 const Ticket = ({ data }) => {
-  const token = localStorage.getItem("token");
-  const [pay, setPay] = useState();
-  useEffect(() => {
-    handleTicket();
-  }, []);
+  const [loader, setLoader] = useState(false);
+  // useEffect(() => {
+  //   // Simulate a 2-second delay
+  //   const delay = 2000;
+  //   const timer = setTimeout(() => {
+  //     setLoader(false);
+  //   }, delay);
 
-  const handleTicket = async () => {
-    try {
-      const res = await fetch(`${BASE_URL}/users/getpayinfo`, {
-        method: "get",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        bookingId: data._id,
-      });
+  //   // Clear the timeout if the component unmounts
+  //   return () => clearTimeout(timer);
+  // }, []);
+  // const token = localStorage.getItem("token");
+  // const [pay, setPay] = useState();
+  // useEffect(() => {
+  //   handleTicket();
 
-      const payinfo = await res.json();
+  // }, []);
 
-      if (!res.ok) {
-        throw new Error(data.message);
-      }
+  // const handleTicket = async () => {
+  //   try {
+  //     // console.log(`${BASE_URL}/cart/getpayinfo?bookingId=${data._id}`);
+  //     const res = await fetch(`${BASE_URL}/cart/getpayinfo/${data._id}`, {
+  //       method: "get",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //       bookingId: data._id,
+  //     });
 
-      setPay(payinfo.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  //     const payinfo = await res.json();
+
+  //     if (!res.ok) {
+  //       throw new Error(data.message);
+  //     }
+
+  //     setPay(payinfo.data);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
   return (
     <>
       <div className="h-[410px] w-[300px] bg-[#DBF5F7] rounded-xl shadow-2xl border-t-[6px] border-[#39ADB5]-500">
@@ -65,11 +78,11 @@ const Ticket = ({ data }) => {
         </div>
         <div className="h-1/6 w-full font-extrabold flex justify-center items-center ">
           <PDFDownloadLink
-            document={<Pdffile data={data} pay={pay} />}
+            document={<Pdffile data={data} setLoader={setLoader} />}
             fileName="Ticket"
           >
             {({ loading }) =>
-              loading ? (
+              loading && loader ? (
                 <button>Loading..</button>
               ) : (
                 <button className="border-solid border-2 border-red-300 p-2 rounded-md hover:bg-red-300 hover:text-white">

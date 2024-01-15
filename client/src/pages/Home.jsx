@@ -1,21 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ReactSwipe from "react-swipe";
 import { Link } from "react-router-dom";
 
 import Image1 from "../assets/images/Img1.jpg";
+import BannerL from "../assets/images/Banner_large.jpg";
+import BannerS from "../assets/images/Banner_small.jpg";
 import Image2 from "../assets/images/Img2.jpg";
 import Image3 from "../assets/images/Img3.jpg";
 import Testimonial from "../components/Testimonial/Testimonial";
 import PlantIcon from "../components/Header/PlantIcon";
-import km5 from "../assets/images/5 KM Run.jpg"
-import km10 from "../assets/images/10 KM Run.jpg"
+import km5 from "../assets/images/5 KM Run.jpg";
+import km10 from "../assets/images/10 KM Run.jpg";
 const Home = () => {
-  let reactSwipeE1;
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []); // Empty dependency array ensures that this effect runs only once on mount
+
+  const isMobile = windowWidth <= 768;
   return (
     <>
       {/* Slider  */}
 
-      <div className="hero_section  p-10">
+      {/* <div className="hero_section  p-10">
         <ReactSwipe
           className="carousel w-full"
           swipeOptions={{ continuous: true, auto: 5000, disableScroll: false }}
@@ -81,6 +98,9 @@ const Home = () => {
             </span>
           </button>
         </div>
+      </div> */}
+      <div className="hero_section p-1 flex justify-center md:p-10 ">
+        <img src={isMobile ? BannerS : BannerL} className="rounded-xl"></img>
       </div>
 
       {/* Hero  */}
@@ -158,37 +178,56 @@ const Home = () => {
       </section>
 
       <div className="grid m-auto max-w-[1240px] py-8 px-3 w-auto grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-0">
+        <div className="sm:justify-center m-auto order-1 sm:order-2 md:order-2  flex-nowwrap">
+          <img
+            src={km5}
+            className="h-auto  w-full flex justify-self-start  max-w-[370px]  rounded-3xl p-2"
+            alt="Image2"
+          />
+        </div>
 
+        <div className="flex justify-center order-2 min-w-[360px] md:order-1 max-h-[350px] flex-wrap m-auto  pb-20">
+          <h2 className="text-3xl">5&nbsp;KM Fun Run</h2>
+          <p className=" mt-5 m-auto px-28">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Perferendis, nobis! Consequuntur alias voluptates dignissimos
+            assumenda recusandae. Iste omnis ducimus mollitia rem enim, dicta
+            corporis?
+          </p>
+          <Link to="/register">
+            {" "}
+            <button class=" flex button mt-7">
+              <div class="top ">Register</div>
+              <div class="bottom">₹300</div>
+            </button>{" "}
+          </Link>{" "}
+        </div>
 
-  <div className="sm:justify-center m-auto order-1 sm:order-2 md:order-2  flex-nowwrap">
-    <img src={km5} className="h-auto  w-full flex justify-self-start  max-w-[370px]  rounded-3xl p-2" alt="Image2" />
-  </div>
+        <div className="flex justify-center m-auto sm:justify-center order-3 id h-auto  flex-nowwrap">
+          <img
+            src={km10}
+            className="h-auto rounded-3xl p-2 flex justify-self-center  max-w-[370px] "
+            alt="Image3"
+          />
+        </div>
 
-  <div className="flex justify-center order-2 min-w-[360px] md:order-1 max-h-[350px] flex-wrap m-auto  pb-20">
-    <h2 className="text-3xl">5&nbsp;KM Fun Run</h2>
-    <p className=" mt-5 m-auto px-28">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, nobis! Consequuntur alias voluptates dignissimos assumenda recusandae. Iste omnis ducimus mollitia rem enim, dicta corporis?</p>
-  
-  <Link to='/register'> <button class=" flex button mt-7">
-  <div class="top ">Register</div>
-  <div class="bottom">₹300</div>
-</button> </Link>  </div>
-
-  <div className="flex justify-center m-auto sm:justify-center order-3 id h-auto  flex-nowwrap">
-    <img src={km10} className="h-auto rounded-3xl p-2 flex justify-self-center  max-w-[370px] " alt="Image3" />
-  </div>
-
-
-  <div className="flex justify-center order-4 min-w-[360px] md:order-4 md:max-h-[350px] m-auto flex-wrap ">
-    <h2 className="text-3xl">10&nbsp;KM Time Run</h2>
-    <p className="px-28 m-auto mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, nobis! Consequuntur alias voluptates dignissimos assumenda recusandae. Iste omnis ducimus mollitia rem enim, dicta corporis?</p>
-    <Link to='/register'>  <button class=" flex mt-7  button">
-  <div class="top ">Register</div>
-  <div class="bottom">₹350</div>
-</button></Link>
-  </div>
-
- 
-</div>
+        <div className="flex justify-center order-4 min-w-[360px] md:order-4 md:max-h-[350px] m-auto flex-wrap ">
+          <h2 className="text-3xl">10&nbsp;KM Time Run</h2>
+          <p className="px-28 m-auto mt-5">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Perferendis, nobis! Consequuntur alias voluptates dignissimos
+            assumenda recusandae. Iste omnis ducimus mollitia rem enim, dicta
+            corporis?
+          </p>
+          <Link to="/register">
+            {" "}
+            <button class=" flex mt-7  button">
+              <div class="top ">Register</div>
+              <div class="bottom">₹350</div>
+            </button>
+          </Link>
+        </div>
+      </div>
 
       {/* Testimonial */}
       <section className="">

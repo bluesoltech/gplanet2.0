@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Page,
   Text,
@@ -8,6 +8,7 @@ import {
   View,
 } from "@react-pdf/renderer";
 import Img from "../../assets/images/pdf_bg.png";
+import { BASE_URL } from "../../config";
 
 const styles = StyleSheet.create({
   body: {
@@ -184,15 +185,25 @@ const styles = StyleSheet.create({
   payment_discount_val: {
     position: "absolute",
     top: 550,
-    left: 398,
+    left: 400,
     fontSize: 10,
     color: "green",
   },
+  payment_transaction: {
+    position: "absolute",
+    top: 650,
+    left: 80,
+    fontSize: 10,
+    color: "grey",
+  },
 });
 
-const Pdffile = ({ data, pay }) => {
-  console.log(data);
-  console.log(pay);
+const Pdffile = ({ data, setLoader }) => {
+  const token = localStorage.getItem("token");
+  // console.log(data);
+
+  const [amount, setAmount] = useState(0);
+  const [id, setId] = useState("");
   const timestamp = data.createdAt;
   const dateObject = new Date(timestamp);
 
@@ -200,10 +211,44 @@ const Pdffile = ({ data, pay }) => {
   const month = dateObject.getUTCMonth() + 1;
   const date = dateObject.getUTCDate();
 
+  useEffect(() => {
+    handleTicket();
+  }, []);
+
+  const handleTicket = async () => {
+    try {
+      const res = await fetch(`${BASE_URL}/cart/getpayinfo/${data._id}`, {
+        method: "get",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        bookingId: data._id,
+      });
+
+      const payinfo = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message);
+      }
+
+      setAmount(payinfo.data[0].amount);
+      setId(payinfo.data[0]._id);
+      setLoader(true);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <Document>
       <Page size="A4" style={styles.body}>
-        <View>
+        <View
+          style={{
+            height: "100%",
+            width: "100%",
+          }}
+        >
           <Image src={Img} style={styles.pageBackground} />
         </View>
         <View style={styles.content}>
@@ -253,11 +298,13 @@ const Pdffile = ({ data, pay }) => {
             INR {data.category === "5 KM" ? "300.00" : "350.00"}
           </Text>
           <Text style={styles.payment_discount} fixed>
-            Discount applied
+            Paid Amount
           </Text>
           <Text style={styles.payment_discount_val} fixed>
-            -INR{" "}
-            {data.category === "5 KM" ? 300 - data.amount : 350 - data.amount}
+            INR {amount}
+          </Text>
+          <Text style={styles.payment_transaction} fixed>
+            Transaction ID: {id}
           </Text>
         </View>
       </Page>
