@@ -137,6 +137,15 @@ const styles = StyleSheet.create({
     fontSize: 10,
     color: "grey",
   },
+  payment_divider: {
+    position: "absolute",
+    top: 460,
+    left: 80,
+    width: 435,
+    borderBottomWidth: 0.5,
+    borderBottomColor: "grey",
+    // color: "grey",
+  },
   payment: {
     position: "absolute",
     top: 480,
@@ -144,10 +153,53 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: "black",
   },
+  payment_status: {
+    position: "absolute",
+    top: 500,
+    left: 80,
+    fontSize: 10,
+    color: "grey",
+  },
+  payment_price: {
+    position: "absolute",
+    top: 530,
+    left: 80,
+    fontSize: 10,
+    color: "grey",
+  },
+  payment_price_val: {
+    position: "absolute",
+    top: 530,
+    left: 400,
+    fontSize: 10,
+    color: "grey",
+  },
+  payment_discount: {
+    position: "absolute",
+    top: 550,
+    left: 80,
+    fontSize: 10,
+    color: "green",
+  },
+  payment_discount_val: {
+    position: "absolute",
+    top: 550,
+    left: 398,
+    fontSize: 10,
+    color: "green",
+  },
 });
 
-const Pdffile = ({ data }) => {
+const Pdffile = ({ data, pay }) => {
   console.log(data);
+  console.log(pay);
+  const timestamp = data.createdAt;
+  const dateObject = new Date(timestamp);
+
+  const year = dateObject.getUTCFullYear();
+  const month = dateObject.getUTCMonth() + 1;
+  const date = dateObject.getUTCDate();
+
   return (
     <Document>
       <Page size="A4" style={styles.body}>
@@ -187,10 +239,26 @@ const Pdffile = ({ data }) => {
           <Text style={styles.category}>Category: {data.category}</Text>
           <Text style={styles.phone}>Contact: {data.phone}</Text>
 
+          <View style={styles.payment_divider} />
           <Text style={styles.payment} fixed>
             Payment Summary
           </Text>
-          {/* <Text style={styles.subbooking2}>ID</Text> */}
+          <Text style={styles.payment_status} fixed>
+            Status: Completed | {year}-{month}-{date}
+          </Text>
+          <Text style={styles.payment_price} fixed>
+            Ticket price
+          </Text>
+          <Text style={styles.payment_price_val} fixed>
+            INR {data.category === "5 KM" ? "300.00" : "350.00"}
+          </Text>
+          <Text style={styles.payment_discount} fixed>
+            Discount applied
+          </Text>
+          <Text style={styles.payment_discount_val} fixed>
+            -INR{" "}
+            {data.category === "5 KM" ? 300 - data.amount : 350 - data.amount}
+          </Text>
         </View>
       </Page>
     </Document>

@@ -1,5 +1,6 @@
 import User from "../models/UserSchema.js";
 import Booking from "../models/BookingSchema.js";
+import Payment from "../models/PaymentSchema.js";
 
 export const updateUser = async (req, res) => {
   const id = req.params.id;
@@ -81,6 +82,21 @@ export const getMyTickets = async (req, res) => {
       success: true,
       message: "Getting Tickets",
       data: booking,
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Something went wrong" });
+  }
+};
+export const getMyPay = async (req, res) => {
+  console.log(req.body);
+  // console.log(req.userId)
+  try {
+    const payment = await Payment.find({ booking: req.bookingId });
+    // console.log(booking)
+    res.status(200).json({
+      success: true,
+      message: "Getting Payment Info",
+      data: payment,
     });
   } catch (err) {
     res.status(500).json({ success: false, message: "Something went wrong" });
