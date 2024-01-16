@@ -188,19 +188,19 @@ const Home = () => {
 
         <div className="flex justify-center order-2 min-w-[360px] md:order-1 max-h-[350px] flex-wrap m-auto  pb-20">
           <h2 className="text-3xl">5&nbsp;KM Fun Run</h2>
-          <p className=" mt-5 m-auto px-28">
+          <p className=" m-auto px-8 p-1 mt-5">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Perferendis, nobis! Consequuntur alias voluptates dignissimos
             assumenda recusandae. Iste omnis ducimus mollitia rem enim, dicta
             corporis?
           </p>
-          <Link to="/register">
-            {" "}
+          <Link onClick={(e) => { e.preventDefault(); window.location.href = '/register'; }}>
+           
             <button class=" flex button mt-7">
               <div class="top ">Register</div>
               <div class="bottom">₹300</div>
-            </button>{" "}
-          </Link>{" "}
+            </button>
+          </Link>
         </div>
 
         <div className="flex justify-center m-auto sm:justify-center order-3 id h-auto  flex-nowwrap">
@@ -213,7 +213,7 @@ const Home = () => {
 
         <div className="flex justify-center order-4 min-w-[360px] md:order-4 md:max-h-[350px] m-auto flex-wrap ">
           <h2 className="text-3xl">10&nbsp;KM Time Run</h2>
-          <p className="px-28 m-auto mt-5">
+          <p className=" m-auto px-8 p-1 mt-5">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Perferendis, nobis! Consequuntur alias voluptates dignissimos
             assumenda recusandae. Iste omnis ducimus mollitia rem enim, dicta
