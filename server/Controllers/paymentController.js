@@ -59,7 +59,7 @@ export const paymentverification = async (req, res) => {
     ePhone: temp.data.ePhone,
     eName: temp.data.eName,
     eRelation: temp.data.eRelation,
-    paid: true
+    paid: true,
   });
 
   if (isauth) {
@@ -81,4 +81,18 @@ export const paymentverification = async (req, res) => {
 };
 export const getkey = async (req, res) => {
   return res.status(200).json({ key: process.env.Razor_KEY });
+};
+
+export const getMyPay = async (req, res) => {
+  try {
+    const payment = await Payment.find({ booking: req.params.id });
+    // console.log(booking)
+    res.status(200).json({
+      success: true,
+      message: "Getting Payment Info",
+      data: payment,
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Something went wrong" });
+  }
 };

@@ -41,7 +41,7 @@ const MyTicket = ({ id }) => {
   // console.log(id)
   return (
     <section>
-      <div className="gap-3 grid grid-cols-1 sm:items-center sm:ml-[20px] sm:max-xl: md:grid-cols-2 md:items">
+      <div className="gap-3 grid grid-cols-1 sm:items-center sm:ml-[20px] lg:grid-cols-2 lg:items">
         {loading ? (
           <h2 className="text-textColor">Loading..</h2>
         ) : (

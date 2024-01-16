@@ -2,6 +2,7 @@ import { useState, useEffect, Fragment } from "react";
 import { Link, useParams } from "react-router-dom";
 import { BASE_URL } from "../../config.js";
 import axios from "axios";
+import check from "../../assets/images/check.png"
 const Verify = () => {
   const [validUrl, setValidUrl] = useState(false);
   const param = useParams();
@@ -24,10 +25,15 @@ const Verify = () => {
   return (
     <div>
       {validUrl ? (
-        <div>
-          <h1>Email Verified Succesfully</h1>
+        <div className="flex flex-col justify-center items-center h-[600px]">
+          
+          <img
+                  className="max-w-[100px] rounded-xl"
+                  src={check}
+                />
+          <h1 className="text-xl text-gray-300">Email Verified Succesfully</h1>
           <Link to="/login">
-            <button> Login</button>
+            <button className="bg-gray-300 mt-[100px] w-[100px] rounded-xl hover:text-white hover:bg-black" > Login </button>
           </Link>
         </div>
       ) : (

@@ -157,6 +157,28 @@ export const verify = async (req, res) => {
     res.status(500).send({ message: "Internal Server Error" });
   }
 };
+export const verifyroute = async (req, res) => {
+  try {
+    const user = await User.findOne({ _id: req.params.id });
+    if (!user)
+      return res.status(400).send({ message: "Invalid link", data: false });
+
+    const token = await Token.findOne({
+      userId: user._id,
+      token: req.params.token,
+    });
+    // console.log("token", token);
+    if (!token)
+      return res.status(400).send({ message: "Invalid link", data: false });
+
+    res
+      .status(200)
+      .send({ message: "Email verified successfully", data: true });
+  } catch (error) {
+    // console.log(error);
+    res.status(500).send({ message: "Internal Server Error", data: false });
+  }
+};
 
 export const forgot = async (req, res) => {
   // console.log("Entered Forgot");

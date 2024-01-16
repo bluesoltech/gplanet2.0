@@ -15,6 +15,7 @@ router.get("/:id", authenticate, getSingleUser);
 router.get("/", authenticate, getAllUser);
 router.get("/profile/me", authenticate, getUserProfile);
 router.get("/tickets/my-ticket", authenticate, getMyTickets);
+
 router.put("/:id", authenticate, updateUser);
 router.delete("/:id", authenticate, deleteUser);
 
