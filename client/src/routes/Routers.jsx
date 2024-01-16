@@ -13,6 +13,8 @@ import Pdffile from "../components/Pdf/Pdffile";
 
 import { Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
+import VerifiedRoute from "./VerifiedRoute";
+
 import Register from "../pages/Register";
 import Verify from "../components/Verification/Verify";
 import Change from "../components/Change/Change";
@@ -31,8 +33,22 @@ const Routers = () => {
       <Route path="/signup" element={<Signup />} />
       <Route path="/pdf" element={<Pdffile />} />
       <Route path="/paymentsuccess" element={<PaySuccs />} />
-      <Route path="/user/:id/verify/:token" element={<Verify />} />
-      <Route path="/user/:id/forgot/:token" element={<Change />} />
+      <Route
+        path="/user/:id/verify/:token"
+        element={
+          <VerifiedRoute>
+            <Verify />
+          </VerifiedRoute>
+        }
+      />
+      <Route
+        path="/user/:id/forgot/:token"
+        element={
+          <VerifiedRoute>
+            <Change />
+          </VerifiedRoute>
+        }
+      />
       <Route
         path="/register"
         element={

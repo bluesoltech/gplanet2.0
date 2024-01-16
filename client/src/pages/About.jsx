@@ -1,5 +1,5 @@
 import React from "react";
-import Img1 from "../assets/images/gpr_logo.png";
+import Img1 from "../assets/images/gpr_logo2.png";
 import OrganizerList from "../components/Organizer/OrganizerList";
 
 const About = () => {
@@ -8,7 +8,7 @@ const About = () => {
       <section className="hero_section pt-[60px] 2xl:h-[800px]">
         <div className="container">
           <div className="flex justify-between gap-[50px] lg:gap-[130px] xl:gap-0 flex-col lg:flex-row">
-            <div className="relative lg:h-[600px] w-3/4 lg:w-1/2 xl:w-[770px] z-10 order-2 lg:order-1">
+            <div className="relative flex justify-center lg:h-[600px] w-full lg:w-1/2 xl:w-[770px] z-10 order-2 lg:order-1">
               <img className="max-h-full max-w-full" src={Img1} alt="" />
             </div>
 
