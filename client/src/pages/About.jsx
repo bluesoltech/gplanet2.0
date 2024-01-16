@@ -7,7 +7,7 @@ const About = () => {
     <>
       <section className="hero_section pt-[60px] 2xl:h-[800px]">
         <div className="container">
-          <div className="flex justify-between gap-[50px] lg:gap-[130px] xl:gap-0 flex-col lg:flex-row">
+          <div className="flex justify-between gap-[50px] lg:gap-[130px] xl:gap-0 flex-col lg:flex-row align-items-center">
             <div className="relative lg:h-[600px] w-3/4 lg:w-1/2 xl:w-[770px] z-10 order-2 lg:order-1">
               <img className="max-h-full max-w-full" src={Img1} alt="" />
             </div>
@@ -17,40 +17,31 @@ const About = () => {
                 Green <span className="text-greenColor">Planet</span> Run
               </h2>
               <p className="text_para">
-                The run is about celebrating the passion of environmental
-                sustainability and improvising reusable economy. This run is
-                also for health awareness & advocating appropriate handling of
-                e-waste as it impacts our health due to hazardous gasses &
-                particles.
+                We have seen catastrophic events and natural disasters of alarming proportions increasing every year. This is due to the negligence of us humans towards preserving the environment.
               </p>
               <br />
 
               <p className="text_para">
-                Going in, you have to remember that the race is supposed to be
-                the fun part...
+                Leading a sustainable lifestyle that preserves the earth's resources is one great solution to keep the earth healthy.
               </p>
               <br />
               <p className="text_para">
-                On The Occasion of National sports Day our prime minister Shri
-                Narendra Modi ji launched the much-anticipated nation-wide
-                <span className="text-greenColor font-bold">
+                It is our collective responsibility to raise the awareness of preserving the earth’s resources through recycling waste especially the e-waste as it has a great impact on the environment.
+                {/* <span className="text-greenColor font-bold">
                   ‘Fit India Movement’
-                </span>
-                .
+                </span> */}
               </p>
               <br />
               <p className="text_para">
-                This race urged citizens to make fitness a daily habit. The aim
-                of GREEN PLANET RUN is to encourage people to prioritize fitness
-                in their routine Lives.
+                Participate in this Run and be a part of an event that helps promote a Green Earth through Green Run.
               </p>
               <br />
-              <p className="text_para">
+              {/* <p className="text_para">
                 PM Modi also administered a fitness pledge to the people of the
                 country. The aim of the 'Fit India movement' is to encourage
                 people to prioritise sports and fitness in their day-to-day
                 lives.
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
@@ -60,8 +51,8 @@ const About = () => {
           <div className="xl:w-[470px] mx-auto">
             <h2 className="heading text-center">Our Organizers</h2>
             <p className="text_para text-center">
-              Green Planet Run is organized and managed by RPlanet Integrated
-              Solution Pvt Ltd and Technogreen Recycling Pvt Ltd.
+              RPlanet Integrated Solutions Pvt.Ltd. and Technogreen Recycling Pvt.Ltd. are jointly organizing the Planet Green Run 2.0 event.
+              They are pioneers in e-waste management.
             </p>
           </div>
           <OrganizerList />

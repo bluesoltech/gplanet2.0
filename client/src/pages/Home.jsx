@@ -111,15 +111,11 @@ const Home = () => {
             <div>
               <div className="lg:w-[570px]">
                 <h1 className="text-[36px] leading-[46px] text-headingColor font-[800] md:text-[60px] md:leading-[70px]">
-                  Let’s be a part of the best running experience this
+                  Participate in The Green Planet Run 2.0 <br />
                   <span className="text-greenColor"> Green Planet Run!</span>
                 </h1>
                 <p className="text_para">
-                  The run is about celebrating the passion of environmental
-                  sustainability and improvising reusable economy. This run is
-                  also for health awareness & advocating appropriate handling of
-                  e-waste as it impacts our health due to hazardous gases &
-                  particles.
+                  As you participate in this event, you contribute towards a good cause that helps keep planet Earth Fit and Fine. This is an opportunity to be a part of a global cause where your participation powers the mission to help keep our earth Green while conveying your commitment to recycling waste. Running is good for you, it keeps you physically and mentally fit.
                 </p>
 
                 <Link to="/register">
@@ -189,10 +185,11 @@ const Home = () => {
         <div className="flex justify-center order-2 min-w-[360px] md:order-1 max-h-[350px] flex-wrap m-auto  pb-20">
           <h2 className="text-3xl">5&nbsp;KM Fun Run</h2>
           <p className=" mt-5 m-auto px-28">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Perferendis, nobis! Consequuntur alias voluptates dignissimos
-            assumenda recusandae. Iste omnis ducimus mollitia rem enim, dicta
-            corporis?
+            An event organized Professionally in association with experienced Marathoners.
+            This specially carved Run is suited for all age groups.
+            Water, refreshments, medical support, and the team of volunteers cheer the participants.
+            T-shirts, Medals, Prizes, BIB, etc.
+
           </p>
           <Link to="/register">
             {" "}
@@ -214,10 +211,15 @@ const Home = () => {
         <div className="flex justify-center order-4 min-w-[360px] md:order-4 md:max-h-[350px] m-auto flex-wrap ">
           <h2 className="text-3xl">10&nbsp;KM Time Run</h2>
           <p className="px-28 m-auto mt-5">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Perferendis, nobis! Consequuntur alias voluptates dignissimos
-            assumenda recusandae. Iste omnis ducimus mollitia rem enim, dicta
-            corporis?
+            This Run is for Joggers and athletes who practice regularly.
+            Different age categories are marked for this Run.
+            Prizes for all age categories like:
+            _____ to _____ years
+            _____ to _____ years
+            _____ to _____ years
+            Water, refreshments, medical support, and the team of volunteers cheer the participants.
+            T-shirts, Medals, Prizes, BIB, etc.
+
           </p>
           <Link to="/register">
             {" "}
