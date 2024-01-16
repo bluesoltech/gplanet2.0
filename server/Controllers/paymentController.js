@@ -73,7 +73,7 @@ export const paymentverification = async (req, res) => {
       razorpay_signature,
     });
     res.redirect(
-      `http://localhost:5173/paymentsuccess?reference=${razorpay_payment_id}`
+      `${process.env.FRONT_URL}/paymentsuccess?reference=${razorpay_payment_id}`
     );
   } else {
     res.status(400).json({ success: false, message: "Payment Not Successful" });
