@@ -11,9 +11,6 @@ import {
   AiOutlineInstagram,
 } from "react-icons/ai";
 
-
-
-
 const socialLinks = [
   {
     path: "https://www.youtube.com/@GreenPlanetRun",
@@ -81,8 +78,7 @@ const quickLinks03 = [
 const quickLinks04 = [
   {
     display: "Privacy Policy",
-    content:
-      `<ul>
+    content: `<ul>
     <li style={{color: "red"}}>⦿ Last updated on Jan 12th 2024</li>
     <li>⦿ This privacy policy details how Green Planet Run. and its associate companies (Authority) process Data of an Individual that gets collected in the course of doing its business. Clause 2 details the way this process of data collection is done. If an individual/company (You) is not in agreement with our method of processing data collection and storage, please do not share your details with us. We request ‘You ’ not use our company website when we are asking for your contact information and personal details. </li>
      </ul>
@@ -127,63 +123,63 @@ const quickLinks04 = [
     <ul>
     <h4><b><u> 2.Procedure followed while collecting and processing INDIVIDUAL DATA:</u></b></h4>
     <h2>⦿ 2.1   INDIVIDUAL DATA COLLECTION</h2>
-    <table style="border="2px solid red">
-  <tr>
-    <th><u>USER</u></th>
-    <th><u>INDIVIDUAL DATA that we collect</u></th>
-    <th><u>The way we use collected Data</u></th>
-    <th><u>Sharing of collected Data</u></th>
+    <table style="border: 2px solid black; font-size: 12px;">
+  <tr style="border: 2px solid black;"> 
+    <th style="border: 2px solid black;"><u>USER</u></th>
+    <th style="border: 2px solid black;"><u>INDIVIDUAL DATA that we collect</u></th>
+    <th style="border: 2px solid black;"><u>The way we use collected Data</u></th>
+    <th style="border: 2px solid black;"><u>Sharing of collected Data</u></th>
   </tr>
-  <tr>
-    <td>Anyone using/accessing the Platform for coupon code,<br> form filling, ticket buying, etc.</td><br>
-    <td>
+  <tr style="border: 2px solid black;">
+    <td >Anyone using/accessing the Platform for coupon code,<br> form filling, ticket buying, etc.</td><br>
+    <td >
     1. Name<br>
     2. Address<br>
     3. Email <br>
     4. Website<br>
     5. Contact number, etc.<br>
     </td><br>
-    <td>● Processing financial and other transactions.</td>
-    <td>We share collected data with External partners who are<br> associated with us in maintaining and running this platform.<br><br>
+    <td >● Processing financial and other transactions.</td>
+    <td >We share collected data with External partners who are<br> associated with us in maintaining and running this platform.<br><br>
     Third parties promoting our events and platform.  
     </td>
   </tr>
-  <tr>
-    <td></td>
-    <td>6. Enquiry, Comments, Feedback, etc. 
+  <tr style="border: 2px solid black;">
+    <td ></td>
+    <td >6. Enquiry, Comments, Feedback, etc. 
     Business name, business portal,
     </td>
-    <td>● Communicating updates to users.</td>
+    <td >● Communicating updates to users.</td>
   </tr>
-  <tr>
-    <td>Our associates and partners using our Platform </td>
-    <td></td>
-    <td>● Marketing events, etc.</td>
+  <tr style="border: 2px solid black;">
+    <td >Our associates and partners using our Platform </td>
+    <td ></td>
+    <td >● Marketing events, etc.</td>
   </tr>
-  <tr>
-    <td></td>
-    <td>7. Details of bank account, UPI details, etc. for payments and billing.</td>
-    <td>•	Improving customer/Individual experience.</td>
+  <tr style="border: 2px solid black;">
+    <td ></td>
+    <td >7. Details of bank account, UPI details, etc. for payments and billing.</td>
+    <td >•	Improving customer/Individual experience.</td>
   </tr>
-  <tr>
-    <td></td>
-    <td>8. Details of website usage </td>
-    <td>● Verification and creation of User account, confirming the identity of the user, aiding the user in accessing our Platform.  </td>
+  <tr style="border: 2px solid black;">
+    <td ></td>
+    <td >8. Details of website usage </td>
+    <td >● Verification and creation of User account, confirming the identity of the user, aiding the user in accessing our Platform.  </td>
   </tr>
-  <tr>
-     <td></td>
-     <td>9. IP addresses and other such information like Internet service provider, browser type, Duration, date, time stamp, exit pages, number of clicks, etc.  <br>● As per clause 9.</td><br>
-    <td>
+  <tr style="border: 2px solid black;">
+     <td ></td>
+     <td >9. IP addresses and other such information like Internet service provider, browser type, Duration, date, time stamp, exit pages, number of clicks, etc.  <br>● As per clause 9.</td><br>
+    <td >
     •	To promote our business.<br>
     •	Creation of event pages, other promotional pages. 
     </td>
   </tr>
-  <tr>
-     <td></td>
-     <td>10. Type of type, and the operating system version.<br>
+  <tr style="border: 2px solid black;">
+     <td ></td>
+     <td >10. Type of type, and the operating system version.<br>
      ●     Details of usage on our Platform and content that you engage with or view. All online statistics concerning your usage.  
      </td>
-     <td></td>
+     <td ></td>
   </tr>
 </table>
     <li>⦿ 2.2
@@ -280,13 +276,11 @@ const quickLinks04 = [
     <li>Policy is subject to changes at any point of time. A timely notification about the changes will be communicated. 
     </li>
     </ul>
-    `
-
+    `,
   },
   {
     display: "Terms & Conditions",
-    content:
-    `<ul>
+    content: `<ul>
     <h4><b><u>TERMS OF USE</u></b></h4>
     <li>⦿ A legally binding agreement is created with the ‘terms of use’ (TOU) when you avail of services of Green Planet Run (GPR) We (GPR) provide an online portal for ticket buying, promotion, and presenting events. Your registration, browsing, or accessing our website/platform (USER) or as an “organizer” that promotes, publishes, or sells tickets through our platform necessitates that you are in agreement and are bound by the stated Terms and conditions. It also means that you have read our privacy policy and will abide by the same ("Privacy Policy"). It also is understood that you are competent and have the legal capacity to enter into this agreement. In a scenario where you are participating on behalf of any third party/entity/company or its associates, you agree that you have the needed authorization to do so. If you do not accept our Terms, do not use our platform. </li>
     </ul>
@@ -481,7 +475,7 @@ const quickLinks04 = [
     </li>
     </ul>
     <br>
-    `
+    `,
   },
   {
     display: "Cancellation",
@@ -522,7 +516,6 @@ const Footer = () => {
   const year = new Date().getFullYear;
   function useOutsideAlerter(ref) {
     useEffect(() => {
-
       function handleClickOutside(event) {
         if (ref.current && !ref.current.contains(event.target)) {
           setPopupOpen(false);
@@ -543,7 +536,7 @@ const Footer = () => {
       <div className="container">
         <div className="flex justify-between flex-col md:flex-row flex-nowwrap gap-[30px]">
           <div>
-            <img className="max-w-[200px]" src={logo} alt="logo"/>
+            <img className="max-w-[200px]" src={logo} alt="logo" />
             <p className="text-[16px] leading-7 font-[400] text-textColor mt-4">
               Copyright © {year} developed by Blue Soltech PVT. LTD. ALL rights
               reserved.
@@ -628,33 +621,40 @@ const Footer = () => {
                   </Link>
                 </li>
               ))}
-              
             </ul>
             {isPopupOpen && (
-        <div className="popup fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-[99999] shadow-xs">
-          <div ref={wrapperRef} className="bg-gray-100 rounded-md w-[1000px] xsm:w-[250px] md:w-[850px] max-h-[600px] h-auto overflow-y-auto overflow-x-hidden">
-            <div className="flex w-full p-2 m-0 items-center bg-white text-black shadow-lg">
-              <div className="justify-center justify-items-center w-full ">
-                <h2 className="flex text-xl font-bold !justify-center justify-self-center">{selectedLink.display}</h2>
+              <div className="popup fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-[99999] shadow-xs">
+                <div
+                  ref={wrapperRef}
+                  className="bg-gray-100 rounded-md w-[1000px] xsm:w-[250px] md:w-[850px] max-h-[600px] h-auto overflow-y-auto overflow-x-hidden"
+                >
+                  <div className="flex w-full p-2 m-0 items-center bg-white text-black shadow-lg">
+                    <div className="justify-center justify-items-center w-full ">
+                      <h2 className="flex text-xl font-bold !justify-center justify-self-center">
+                        {selectedLink.display}
+                      </h2>
+                    </div>
+                    <div className="flex justify-end justify-items-end text-end">
+                      <button
+                        className="justify-end justify-items-end"
+                        onClick={closePopup}
+                      >
+                        <IoCloseCircle className="h-8 w-8" />
+                      </button>
+                    </div>
+                  </div>
+                  <div className="px-3 mt-2 mb-3">
+                    <p
+                      className="text-gray-700"
+                      dangerouslySetInnerHTML={{ __html: selectedLink.content }}
+                    ></p>
+                  </div>
+                </div>
               </div>
-              <div className="flex justify-end justify-items-end text-end">
-                <button className="justify-end justify-items-end" onClick={closePopup}><IoCloseCircle className="h-8 w-8" /></button>
-              </div>
-            </div>
-            <div className="px-3 mt-2 mb-3">
-              <p
-                className="text-gray-700"
-                dangerouslySetInnerHTML={{ __html: selectedLink.content }}
-              ></p>
-            </div>
+            )}
           </div>
         </div>
-      )}
-          </div>
-        </div>
-     
       </div>
-   
     </footer>
   );
 };
