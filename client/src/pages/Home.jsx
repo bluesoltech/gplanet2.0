@@ -173,7 +173,7 @@ const Home = () => {
         </div>
       </section>
 
-      <div className="grid m-auto max-w-[1240px] py-8 px-3 w-auto grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-0">
+      <div className="grid m-auto mt-[100px] max-w-[1240px] py-8 px-3 w-auto grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-0">
         <div className="sm:justify-center m-auto order-1 sm:order-2 md:order-2  flex-nowwrap">
           <img
             src={km5}
@@ -213,10 +213,6 @@ const Home = () => {
           <p className="px-28 m-auto mt-5">
             This Run is for Joggers and athletes who practice regularly.
             Different age categories are marked for this Run.
-            Prizes for all age categories like:
-            _____ to _____ years
-            _____ to _____ years
-            _____ to _____ years
             Water, refreshments, medical support, and the team of volunteers cheer the participants.
             T-shirts, Medals, Prizes, BIB, etc.
 

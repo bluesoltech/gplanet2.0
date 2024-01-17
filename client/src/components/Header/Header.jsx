@@ -84,7 +84,7 @@ const Header = () => {
                   {/* <figure className="w-[35px] h-[35px] rounded-full cursor-pointer">
                     <img src={userImg} className="w-full rounded-full" alt="" />
                   </figure> */}
-                  <h2 className="text-lg font-semiBold p-1 bg-primaryColor rounded-[4px] text-white w-20   text-center">
+                  <h2 className="text-lg font-semiBold p-1 bg-primaryColor rounded-[4px] text-white w-auto text-center">
                     {user?.name}
                   </h2>
                 </Link>
