@@ -29,36 +29,62 @@ const ImageSlider = () => {
     slidesToShow: 6,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 2000,
+    speed: 1500,
     autoplaySpeed: 1000,
     cssEase: "linear",
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4,
+          infinite: true,
+          // dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          initialSlide: 4,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+    ],
   };
   return (
     <section>
-    <div className="container">
-    <Slider {...settings} className="">
-        <Slide add={img1} className="" />
-        <Slide add={img2} />
-        <Slide add={img13} />
-        <Slide add={img4} />
-        <Slide add={img5} />
-        <Slide add={img6} />
-        <Slide add={img7} />
-        <Slide add={img8} />
-        <Slide add={img9} />
-        <Slide add={img10} />
-        <Slide add={img11} />
-        <Slide add={img12} />
-        <Slide add={img13} />
-        <Slide add={img14} />
-        <Slide add={img15} />
-        <Slide add={img16} />
-        <Slide add={img17} />
-        <Slide add={img18} />
-        <Slide add={img19} />
-        <Slide add={img20} />
-    </Slider>
-    </div>
+      <div className="container">
+        <Slider {...settings} className="">
+          <Slide add={img1} className="" />
+          <Slide add={img2} />
+          <Slide add={img13} />
+          <Slide add={img4} />
+          <Slide add={img5} />
+          <Slide add={img6} />
+          <Slide add={img7} />
+          <Slide add={img8} />
+          <Slide add={img9} />
+          <Slide add={img10} />
+          <Slide add={img11} />
+          <Slide add={img12} />
+          <Slide add={img13} />
+          <Slide add={img14} />
+          <Slide add={img15} />
+          <Slide add={img16} />
+          <Slide add={img17} />
+          <Slide add={img18} />
+          <Slide add={img19} />
+          <Slide add={img20} />
+        </Slider>
+      </div>
     </section>
   );
 };

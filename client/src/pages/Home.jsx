@@ -111,11 +111,19 @@ const Home = () => {
             <div>
               <div className="lg:w-[570px]">
                 <h1 className="text-[36px] leading-[46px] text-headingColor font-[800] md:text-[60px] md:leading-[70px]">
-                  Participate in The Green Planet Run 2.0 <br />
-                  <span className="text-greenColor"> Green Planet Run!</span>
+                  Participate in The <br />
+                  <span className="text-greenColor">
+                    {" "}
+                    Green Planet Run 2.0!
+                  </span>
                 </h1>
                 <p className="text_para">
-                  As you participate in this event, you contribute towards a good cause that helps keep planet Earth Fit and Fine. This is an opportunity to be a part of a global cause where your participation powers the mission to help keep our earth Green while conveying your commitment to recycling waste. Running is good for you, it keeps you physically and mentally fit.
+                  As you participate in this event, you contribute towards a
+                  good cause that helps keep planet Earth Fit and Fine. This is
+                  an opportunity to be a part of a global cause where your
+                  participation powers the mission to help keep our earth Green
+                  while conveying your commitment to recycling waste. Running is
+                  good for you, it keeps you physically and mentally fit.
                 </p>
 
                 <Link to="/register">
@@ -177,27 +185,36 @@ const Home = () => {
         <div className="sm:justify-center m-auto order-1 sm:order-2 md:order-2  flex-nowwrap">
           <img
             src={km5}
-            className="h-auto  w-full flex justify-self-start  max-w-[370px]  rounded-3xl p-2"
+            className="h-auto  w-full flex justify-self-center  max-w-[370px]  rounded-3xl p-2"
             alt="Image2"
           />
         </div>
 
         <div className="flex justify-center order-2 min-w-[360px] md:order-1 max-h-[350px] flex-wrap m-auto  pb-20">
           <h2 className="text-3xl">5&nbsp;KM Fun Run</h2>
-          <p className=" mt-5 m-auto px-28">
-            An event organized Professionally in association with experienced Marathoners.
-            This specially carved Run is suited for all age groups.
-            Water, refreshments, medical support, and the team of volunteers cheer the participants.
-            T-shirts, Medals, Prizes, BIB, etc.
 
+          <p className="mt-5 m-auto px-10 md:px-28">
+            An event organized Professionally in association with experienced
+            Marathoners. This specially carved Run is suited for all age groups.
+            Water, refreshments, medical support, and the team of volunteers
+            cheer the participants. T-shirts, Medals, Non-Time BIB, etc.
           </p>
-          <Link onClick={(e) => { e.preventDefault(); window.location.href = '/register'; }}>
-           
-            <button class=" flex button mt-7">
-              <div class="top ">Register</div>
-              <div class="bottom">₹300</div>
-            </button>
-          </Link>
+          <div className="flex flex-col items-center">
+            <Link
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "/register";
+              }}
+            >
+              <button class=" flex button mt-7">
+                <div class="top ">Register</div>
+                <div class="bottom">₹300</div>
+              </button>
+            </Link>
+            <p className="text-textColor text-[10px] text-center mt-2">
+              Note: No Cash prizes for this category will be awarded
+            </p>
+          </div>
         </div>
 
         <div className="flex justify-center m-auto sm:justify-center order-3 id h-auto  flex-nowwrap">
@@ -210,20 +227,24 @@ const Home = () => {
 
         <div className="flex justify-center order-4 min-w-[360px] md:order-4 md:max-h-[350px] m-auto flex-wrap ">
           <h2 className="text-3xl">10&nbsp;KM Time Run</h2>
-          <p className="px-28 m-auto mt-5">
+          <p className=" px-10 md:px-28 m-auto mt-5">
             This Run is for Joggers and athletes who practice regularly.
-            Different age categories are marked for this Run.
-            Water, refreshments, medical support, and the team of volunteers cheer the participants.
-            T-shirts, Medals, Prizes, BIB, etc.
-
+            Different age categories are marked for this Run. Water,
+            refreshments, medical support, and the team of volunteers cheer the
+            participants. T-shirts, Medals, Prizes,Time BIB, etc.
           </p>
-          <Link to="/register">
-            {" "}
-            <button class=" flex mt-7  button">
-              <div class="top ">Register</div>
-              <div class="bottom">₹350</div>
-            </button>
-          </Link>
+          <div className="flex flex-col items-center">
+            <Link to="/register">
+              {" "}
+              <button class=" flex mt-7  button">
+                <div class="top ">Register</div>
+                <div class="bottom">₹350</div>
+              </button>
+            </Link>
+            <p className="text-textColor text-[10px] text-center mt-2">
+              Note: Cash prizes for this category will be announced soon
+            </p>
+          </div>
         </div>
       </div>
 

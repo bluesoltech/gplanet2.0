@@ -6,9 +6,9 @@ const Gallery = () => {
   return (
     <div className="overflow-x-hidden ">
       <Slogan
-        name="John Doe"
-        position="CEO"
-        comment="A healthy start to every day! I heghly recommend these products, they do the trick"
+        name="Vishnu Kamaliya"
+        position="CEO - Blue Soltech"
+        comment="A healthy start to every day! I highly recommend these products, they do the trick"
       />
       <ImageSlider />
     </div>

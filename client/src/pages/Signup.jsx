@@ -23,7 +23,7 @@ const Signup = () => {
   };
   const handleVerification = (e) => {
     e.preventDefault();
-    console.log("verifying..")
+    console.log("verifying..");
   };
 
   const submitHandler = async (e) => {
@@ -48,10 +48,10 @@ const Signup = () => {
       toast.success(message);
       navigate("/login");
     } catch (err) {
-      console.log(err)
+      console.log(err);
       toast.error(err.message);
-      if(err.message == "Password is not strong enough"){
-        setStrongpass(true)
+      if (err.message == "Password is not strong enough") {
+        setStrongpass(true);
       }
       setLoading(false);
     }
@@ -60,7 +60,7 @@ const Signup = () => {
   return (
     <>
       <div>
-        <div className="hero_section xl:h-[800px] flex flex-col items-center max-h-screen sm:justify-center sm:pt-0 bg-gray-50">
+        <div className="hero_section h-[80vh] xl:h-[800px] flex flex-col items-center justify-around max-h-screen sm:justify-center sm:pt-0 bg-gray-50">
           <div className="w-full px-6 overflow-hidden sm:max-w-lg sm:rounded-lg">
             <form onSubmit={submitHandler}>
               <div>
@@ -72,7 +72,7 @@ const Signup = () => {
                 </label>
                 <div className="flex flex-col items-start">
                   <input
-                  required
+                    required
                     type="text"
                     name="name"
                     value={formData.name}
@@ -90,15 +90,14 @@ const Signup = () => {
                 </label>
                 <div className="flex flex-row items-center justify-between">
                   <input
-                  required
+                    required
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
                     className="block w-full mt-1 border-[1px] border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                  />                
+                  />
                 </div>
-                
               </div>
               <div className="mt-4">
                 <label
@@ -107,10 +106,18 @@ const Signup = () => {
                 >
                   Password
                 </label>
-                {strongpass? (<p className="text-textColor text-[10px]">Password should contain at least one digit, one special character, one lowercase letter, and one uppercase letter, with a minimum length of 8 characters</p>): (<p></p>)}
+                {strongpass ? (
+                  <p className="text-textColor text-[10px]">
+                    Password should contain at least one digit, one special
+                    character, one lowercase letter, and one uppercase letter,
+                    with a minimum length of 8 characters
+                  </p>
+                ) : (
+                  <p></p>
+                )}
                 <div className="flex flex-col items-start">
                   <input
-                  required
+                    required
                     type="password"
                     name="password"
                     value={formData.password}
@@ -128,7 +135,7 @@ const Signup = () => {
                 </label>
                 <div className="flex flex-col items-start">
                   <input
-                  required
+                    required
                     type="password"
                     name="cpassword"
                     value={formData.cpassword}
