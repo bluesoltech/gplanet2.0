@@ -7,7 +7,6 @@ import img3 from '../assets/images/Logos/logo2.png';
 import img4 from '../assets/images/Logos/logo3.png';
 import img5 from '../assets/images/Logos/logo4.png';
 import img6 from '../assets/images/Logos/logo5.png';
-import img7 from '../assets/images/Logos/logo6.png';
 import img8 from '../assets/images/Logos/logo7.png';
 import img9 from '../assets/images/Logos/logo8.png';
 import img10 from '../assets/images/Logos/logo9.png';
@@ -131,9 +130,6 @@ const About = () => {
               </div>
               <div>
                 <img className="w-[150px]" src={img8} />
-              </div>
-              <div>
-                <img className="w-[150px]" src={img7} />
               </div>
               <div>
                 <img className="w-[150px]" src={img9} />
