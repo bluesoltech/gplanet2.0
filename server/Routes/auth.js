@@ -5,6 +5,7 @@ import {
   verify,
   forgot,
   change,
+  verifyroute,
 } from "../Controllers/authController.js";
 
 const router = express.Router();
@@ -14,5 +15,6 @@ router.post("/login", login);
 router.post("/forgot", forgot);
 router.get("/:id/verify/:token", verify);
 router.post("/:id/change/:token", change);
+router.get("/:id/verifyroute/:token", verifyroute);
 
 export default router;

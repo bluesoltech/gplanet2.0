@@ -191,13 +191,13 @@ const Home = () => {
             T-shirts, Medals, Prizes, BIB, etc.
 
           </p>
-          <Link to="/register">
-            {" "}
+          <Link onClick={(e) => { e.preventDefault(); window.location.href = '/register'; }}>
+           
             <button class=" flex button mt-7">
               <div class="top ">Register</div>
               <div class="bottom">₹300</div>
-            </button>{" "}
-          </Link>{" "}
+            </button>
+          </Link>
         </div>
 
         <div className="flex justify-center m-auto sm:justify-center order-3 id h-auto  flex-nowwrap">

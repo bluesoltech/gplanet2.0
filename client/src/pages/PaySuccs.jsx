@@ -15,19 +15,14 @@ const PaySuccs = () => {
   },1000)
 
 
-  setTimeout(function() {
-    window.location.replace('/');
-  }, 10000)
+  function redirect(){
+    if(time < 1){
+      window.location.pathname("/");
+    }
+  }
+  redirect();
   
-  
-  useEffect(() => {
-    // Use a timeout to mimic a delay in showing the animation (for demonstration purposes)
-    const timer = setTimeout(() => {
-      setShowAnimation(true);
-    }, 500);
 
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <>
