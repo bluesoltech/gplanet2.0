@@ -1,6 +1,8 @@
 import { useEffect, useRef, useContext } from "react";
-import logo from "../../assets/images/logo.png";
-import logo2 from "../../assets/images/Logo2.png";
+// import logo from "../../assets/images/logo.png";
+// import logo2 from "../../assets/images/Logo2.png";
+import logo3 from "../../assets/images/logo3.png";
+// import logo4 from "../../assets/images/logo4.png";
 import { NavLink, Link } from "react-router-dom";
 import { BiMenu } from "react-icons/bi";
 import { authContext } from "../../context/AuthContext";
@@ -55,7 +57,13 @@ const Header = () => {
       <div className="container">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <img src={logo2} alt="" className="max-w-[80%] tablet:max-w-[60%] md:max-w-[30%]" />
+            <Link to="/home">
+              <img
+                src={logo3}
+                alt=""
+                className="max-w-[80%] tablet:max-w-[60%] md:max-w-[30%]"
+              />
+            </Link>
           </div>
 
           <div className="navigation" ref={menuRef} onClick={toggleMenu}>
@@ -85,7 +93,7 @@ const Header = () => {
                     <img src={userImg} className="w-full rounded-full" alt="" />
                   </figure> */}
                   <h2 className="text-lg font-semiBold p-1 bg-primaryColor rounded-[4px] text-white w-auto text-center">
-                    {user?.name}
+                    {user?.name.split(" ")[0]}
                   </h2>
                 </Link>
               </div>

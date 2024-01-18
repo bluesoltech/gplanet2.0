@@ -60,7 +60,7 @@ const Change = () => {
         <div className="flex flex-col">
           <label className="text-textColor">New Password</label>
           <input
-            className="border-[1px] border-textColor"
+            className="px-2 border-[1px] border-textColor"
             name="newPassword"
             type="password"
             value={formData.newPassword}
@@ -71,7 +71,7 @@ const Change = () => {
         <div className="flex flex-col">
           <label className="text-textColor">Rewrite New Password</label>
           <input
-            className="border-[1px] border-textColor"
+            className="px-2 border-[1px] border-textColor"
             name="confirmPassword"
             type="password"
             value={formData.confirmPassword}

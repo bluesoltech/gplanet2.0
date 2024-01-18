@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { IoCloseCircle } from "react-icons/io5";
 
 import { Link } from "react-router-dom";
-import logo from "../../assets/images/logo.png";
+import logo from "../../assets/images/logo3.png";
 
 import { RiLinkedinFill, RiTwitterXFill } from "react-icons/ri";
 import {
@@ -537,10 +537,10 @@ const Footer = () => {
         <div className="flex justify-between flex-col md:flex-row flex-nowwrap gap-[30px]">
           <div>
             <img className="max-w-[200px]" src={logo} alt="logo" />
-            <p className="text-[16px] leading-7 font-[400] text-textColor mt-4">
+            {/* <p className="text-[16px] leading-7 font-[400] text-textColor mt-4">
               Copyright © {year} developed by Blue Soltech PVT. LTD. ALL rights
               reserved.
-            </p>
+            </p> */}
             <div className="flex items-center gap-3 mt-4">
               {socialLinks.map((link, index) => (
                 <Link
