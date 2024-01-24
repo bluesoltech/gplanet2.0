@@ -21,10 +21,6 @@ const Signup = () => {
       [e.target.name]: e.target.value,
     });
   };
-  const handleVerification = (e) => {
-    e.preventDefault();
-    console.log("verifying..");
-  };
 
   const submitHandler = async (e) => {
     e.preventDefault();

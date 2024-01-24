@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { FaInfoCircle } from "react-icons/fa";
+
 import { toast } from "react-toastify";
 import { discounts } from "../../assets/data/coupon";
 
@@ -9,7 +11,6 @@ function roundup(number) {
 function GST(num) {
   return roundup(num + 0.18 * num);
 }
-
 
 const Checkout = ({ data, checkoutHandler }) => {
   const [dis, setDis] = useState(0);
@@ -199,7 +200,10 @@ const Checkout = ({ data, checkoutHandler }) => {
                 <button onClick={handleCouponClear}>Clear</button>
               )}
             </div>
-
+            <div className="flex items-center mt-2">
+              <FaInfoCircle className="mr-2" />
+              <p>Use "EARLYBIRD" for ₹50 Discount</p>
+            </div>
             <div className="flex justify-between w-full items-center mt-10">
               <p className="text-xl font-semibold leading-4 text-gray-800">
                 Estimated Total{" "}

@@ -100,7 +100,9 @@ const Home = () => {
         </div>
       </div> */}
       <div className="hero_section p-1 flex justify-center md:p-10 ">
-        <img src={isMobile ? BannerS : BannerL} className="rounded-xl"></img>
+        <Link to="https://allevents.by/23422580">
+          <img src={isMobile ? BannerS : BannerL} className="rounded-xl"></img>
+        </Link>
       </div>
 
       {/* Hero  */}
@@ -126,7 +128,10 @@ const Home = () => {
                   good for you, it keeps you physically and mentally fit.
                 </p>
 
-                <Link to="/register">
+                {/* <Link to="/register">
+                  <button className="btn">Register</button>
+                </Link> */}
+                <Link to="https://allevents.by/23422580">
                   <button className="btn">Register</button>
                 </Link>
               </div>
@@ -200,7 +205,13 @@ const Home = () => {
             cheer the participants. T-shirts, Medals, Non-Time BIB, etc.
           </p>
           <div className="flex flex-col items-center">
-            <Link
+            <Link to="https://allevents.by/23422580">
+              <button class=" flex button mt-7">
+                <div class="top ">Register</div>
+                <div class="bottom">₹300</div>
+              </button>
+            </Link>
+            {/* <Link
               onClick={(e) => {
                 e.preventDefault();
                 window.location.href = "/register";
@@ -210,7 +221,7 @@ const Home = () => {
                 <div class="top ">Register</div>
                 <div class="bottom">₹300</div>
               </button>
-            </Link>
+            </Link> */}
             <p className="text-textColor text-[10px] text-center mt-2">
               Note: No Cash prizes for this category will be awarded
             </p>
@@ -234,13 +245,20 @@ const Home = () => {
             participants. T-shirts, Medals, Prizes,Time BIB, etc.
           </p>
           <div className="flex flex-col items-center">
-            <Link to="/register">
+            <Link to="https://allevents.by/23422580">
               {" "}
               <button class=" flex mt-7  button">
                 <div class="top ">Register</div>
                 <div class="bottom">₹350</div>
               </button>
             </Link>
+            {/* <Link to="/register">
+              {" "}
+              <button class=" flex mt-7  button">
+                <div class="top ">Register</div>
+                <div class="bottom">₹350</div>
+              </button>
+            </Link> */}
             <p className="text-textColor text-[10px] text-center mt-2">
               Note: Cash prizes for this category will be announced soon
             </p>

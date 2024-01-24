@@ -8,7 +8,7 @@ export const sendEmail = async (email, subject, content) => {
       port: Number(process.env.EMAIL_PORT),
       secure: Boolean(process.env.SECURE),
       auth: {
-        user: String(process.env.USER),
+        user: String(process.env.EMAIL),
         pass: String(process.env.PASS),
       },
     });

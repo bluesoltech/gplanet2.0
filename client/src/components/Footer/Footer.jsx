@@ -67,7 +67,8 @@ const quickLinks02 = [
 ];
 const quickLinks03 = [
   {
-    path: "/register",
+    path: "https://allevents.by/23422580",
+    // path: "/register",
     display: "Register Now",
   },
   {
@@ -513,7 +514,7 @@ const Footer = () => {
     setSelectedLink(null);
   };
 
-  const year = new Date().getFullYear;
+  // const year = new Date().getFullYear;
   function useOutsideAlerter(ref) {
     useEffect(() => {
       function handleClickOutside(event) {
@@ -605,7 +606,7 @@ const Footer = () => {
               ))}
             </ul>
           </div>
-          <div className="">
+          {/* <div className="">
             <h2 className="text-[20px] leading-[30px] font-[700] mb-6 text-headingColor">
               Privacy & Security
             </h2>
@@ -652,7 +653,7 @@ const Footer = () => {
                 </div>
               </div>
             )}
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

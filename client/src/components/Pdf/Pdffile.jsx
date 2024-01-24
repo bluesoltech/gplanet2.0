@@ -233,7 +233,7 @@ const Pdffile = ({ data, setLoader }) => {
       }
 
       setAmount(payinfo.data[0].amount);
-      setId(payinfo.data[0]._id);
+      setId(payinfo.data[0].razorpay_payment_id);
       setLoader(true);
     } catch (err) {
       console.log(err);

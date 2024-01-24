@@ -59,7 +59,7 @@ export const register = async (req, res) => {
     }).save();
     // console.log(token);
 
-    const url = `http://localhost:5173/user/${temp._id}/verify/${token.token}`;
+    const url = `${process.env.FRONT_URL}/user/${temp._id}/verify/${token.token}`;
 
     const html = `<h2>Hi ${temp.name}! Thanks for registering on our site </h2><h4> Please verfiy your mail to continue... </h4><a href=${url} >Verify your Email</a>`;
     // console.log(html);
@@ -103,7 +103,7 @@ export const login = async (req, res) => {
           userId: user._id,
           token: crypto.randomBytes(32).toString("hex"),
         }).save();
-        const url = `http://localhost:5173/user/${user.id}/verify/${token.token}`;
+        const url = `${process.env.FRONT_URL}/user/${user.id}/verify/${token.token}`;
         // console.log(url);
         const content = `<h2>Hi ${user.name}! Thanks for registering on our site </h2><h4> Please verfiy your mail to continue... </h4><a href=${url} >Verify your Email</a>`;
         // console.log(content);
@@ -202,7 +202,7 @@ export const forgot = async (req, res) => {
         token: crypto.randomBytes(32).toString("hex"),
       }).save();
     }
-    const url = `http://localhost:5173/user/${user._id}/forgot/${token.token}`;
+    const url = `${process.env.FRONT_URL}/user/${user._id}/forgot/${token.token}`;
 
     const html = `<h2>Hi ${user.name}! </h2>
                   <h4> Please change your password with this link </h4>
