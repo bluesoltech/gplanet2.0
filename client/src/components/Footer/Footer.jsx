@@ -283,19 +283,19 @@ const quickLinks04 = [
     display: "Terms & Conditions",
     content: `<ul>
     <h4><b><u>TERMS OF USE</u></b></h4>
-    <li>⦿ A legally binding agreement is created with the ‘terms of use’ (TOU) when you avail of services of Green Planet Run (GPR) We (GPR) provide an online portal for ticket buying, promotion, and presenting events. Your registration, browsing, or accessing our website/platform (USER) or as an “organizer” that promotes, publishes, or sells tickets through our platform necessitates that you are in agreement and are bound by the stated Terms and conditions. It also means that you have read our privacy policy and will abide by the same ("Privacy Policy"). It also is understood that you are competent and have the legal capacity to enter into this agreement. In a scenario where you are participating on behalf of any third party/entity/company or its associates, you agree that you have the needed authorization to do so. If you do not accept our Terms, do not use our platform. </li>
+    <li>⦿ A legally binding agreement is created with the ‘terms of use’ (TOU) when you avail of services of Blue Soltech LLP (GPR) We (GPR) provide an online portal for ticket buying, promotion, and presenting events. Your registration, browsing, or accessing our website/platform (USER) or as an “organizer” that promotes, publishes, or sells tickets through our platform necessitates that you are in agreement and are bound by the stated Terms and conditions. It also means that you have read our privacy policy and will abide by the same ("Privacy Policy"). It also is understood that you are competent and have the legal capacity to enter into this agreement. In a scenario where you are participating on behalf of any third party/entity/company or its associates, you agree that you have the needed authorization to do so. If you do not accept our Terms, do not use our platform. </li>
     </ul>
     <br>
 
     <ul>
     <h4><b><u>RIGHTS OF USERS:</u></b><h4>
-    <li>⦿ Bound under the terms,  GPR grants you or the User a revocable, non-exclusive, non-sublicensable right to browse through our Platform and do the actions needed like registration for an event, viewing the contents published, tickets purchase or even publishing on the platform. </li>
+    <li>⦿ Bound under the terms, GPR grants you or the User a revocable, non-exclusive, non-sublicensable right to browse through our Platform and do the actions needed like registration for an event, viewing the contents published, tickets purchase or even publishing on the platform. </li>
     </ul>
     <br>
 
     <ul>
     <h4><b><u>RIGHTS OF ORGANISER:</u></b><h4>
-    <li>⦿ Bound under the terms,  GPR grants ORGANIZERS a revocable, non-exclusive, non-sublicensable right to promote, publish, and create any current and upcoming events on specified page/s. You may collect sale proceeds of events, manage and sell tickets, and track your published events through the Page created for the purpose.</li>
+    <li>⦿ Bound under the terms, GPR grants ORGANIZERS a revocable, non-exclusive, non-sublicensable right to promote, publish, and create any current and upcoming events on specified page/s. You may collect sale proceeds of events, manage and sell tickets, and track your published events through the Page created for the purpose.</li>
     </ul>
     <br>
 
@@ -307,7 +307,7 @@ const quickLinks04 = [
 
     <ul>
     <h4><b><u>BRAND AND EVENT PAGE FOR ORGANIZER:</u></b><h4>
-    <li>⦿ As an organizer, you have access to create your page on our platform and present information or publish details on your events. Post the creation of your page, you will be allowed to sell tickets for your events. All you need to do is to sign in with your business name and the URL of your business. For verification purposes, we might collect information from you. The collection of the information of an organizer helps us to establish their authenticity, legality, and whether the necessary criteria to publish events are fulfilled. As an Organiser, you undertake that all the information provided by you is authentic, timely, correct, and complete and you will also ensure to maintain and update information at the right time. <br>
+    <li>⦿As an organizer, you have access to create your page on our platform and present information or publish details on your events. Post the creation of your page, you will be allowed to sell tickets for your events. All you need to do is to sign in with your business name and the URL of your business. For verification purposes, we might collect information from you. The collection of the information of an organizer helps us to establish their authenticity, legality, and whether the necessary criteria to publish events are fulfilled. As an Organiser, you undertake that all the information provided by you is authentic, timely, correct, and complete and you will also ensure to maintain and update information at the right time. <br>
     <u>Guidelines for usage:</u> You being a user or an Organiser should not do the following:<br>
     - Hacking the platform/website or changing and adapting the content, unauthorized access, etc.<br> 
     - Resell, sell, lease, rent, distribute, assign, license, sublicense, transfer, distribute, reverse engineer, timeshare, decompile, disassemble, or make our Platform accessible to others except than for intended and agreed purposes as per the terms and conditions.<br> 
@@ -315,18 +315,20 @@ const quickLinks04 = [
     - Upload, transmit, and link to, any malware, time bombs, viruses, trojan horses like harmful software.<br>
     - Through the use of any means ‘Scrape’, "crawl," "scrape," or "spider" any page, data, or portion of Platform.
     </li>
+    <h4><b>User Restrictions:</b></h4>
     <h4><b>You as a user/organizer agree that:</b></h4>
     <li>- Promotion or publishing of sexually explicit or Pornographic, sexually suggestive content, or sexually explicit videos will not be done through this Platform.<br>
     - Promotion or publishing of events of a political nature, violent events, or religious extremism will not be done through this platform<br>
     - Any data stored or shared by our users and organizers will not be shared, transmitted, or stored and is in violation of applicable laws and regulations.<br>
     - You have the needed permission to organize the event and you are abiding by all the laws and regulations applicable.<br>
     - In case the event gets canceled or postponed or there are any changes to the event profile, you will notify the people concerned via public notice and <b>  GPR </b> separately and immediately.<br>
-    <b>  GPR  reserves the right to change rules and regulations depending on the nature of the event and will inform users and organizers about the changes. </b>
+    <b>GPR reserves the right to change rules and regulations depending on the nature of the event and will inform users and organizers about the changes. </b>
     </li>
     </ul>
     <br>
 
     <ul>
+    <h1><b>CANCELLATION AND REFUND:</b></h1>
     <h1><b><u>TICKET SALES:</u></b><h1>
     <li>⦿ No re-selling of tickets or re-publishing of events of the principal organizer is allowed without the original organizers' permission to do so. Tickets for events can be purchased through the relevant Event Page of the Organiser. <br>
     Although we ensure the authenticity of the events published on our platform, it is the User's responsibility to verify the authenticity of an event, etc. It is mandatory to comply with the terms and conditions listed on the Event Page and website/platform. <br>
@@ -354,13 +356,20 @@ const quickLinks04 = [
     <h4><b><u>PAYMENT AND REFUNDS:</u></b><h4>
     <li>⦿ Fixing the price of tickets is the responsibility of the organizer.  GPR does not fix ticket rates. <b>  GPR </b> is a medium to collect the ticket charges with any applicable transaction fees which together are referred to as ‘Registration fee for Event’.<br>
     Publishing an event on our website/platform by the organizer authorizes  GPR to collect the Event Registration Fee through its associated payment gateways. All Parties involved are subject to the terms and conditions of such third-party payment gateways.<br> 
-    Event Registration Fee collected on behalf of the organizers gets paid by  GPR to the organizer of the event after 3 days of the conclusion of the event for which the fees have been collected. This <b>"Withholding Period"</b> is aimed at ensuring the User’s safety and to ensure that the commitments made by the organizer to the user are delivered. In case the event is not organized as per the commitments made by the organizer/s,  GPR reserves the right to refund the Base Price to the Users without giving any prior notice to the organizer. <br>
-    Publishing an event on our website/platform by the organizer authorizes  GPR to collect the Event Registration Fee through its associated payment gateways. All Parties involved are subject to the terms and conditions of such third-party payment gateways.<br><br>
+    Event Registration Fee collected on behalf of the organizers gets paid by  GPR to the organizer of the event after 3 days of the conclusion of the event for which the fees have been collected. This <b>"Withholding Period"</b> is aimed at ensuring the User’s safety and to ensure that the commitments made by the organizer to the user are delivered. In case the event is not organized as per the commitments made by the organizer/s,  GPR reserves the right to refund the Base Price to the Users without giving any prior notice to the organizer, WITHIN 30 DAYS OF COLLECTION OF THE FEE.<br>
+    <h1><b>Money Transfer and procedure to initiate a return or exchange:</b></h1>
      GPR transfers the Base Price amount to the Organiser’s bank account as submitted by the organizer at the time of creating their Event Page when there are no complaints from the users. <br><br>
     After the 3 days of withholding time is over,  GPR bears no responsibility to make any refunds to users. The users need to contact the event organizer who will ensure the processing as per their refund policy detailed on their Event Page.<br><br>
     In case of events not in control of   GPR , like strikes, natural calamities, violation of event cancellation terms, overbooking, force majure, etc.  GPR will be entitled to the Handling and Booking Fee charged to the user. It is the responsibility of the organizer to raise objections against the payments from  GPR within 30 days, if any. In case of no objections coming from the organizer within the stipulated time frame, such payment received by  GPR shall be considered to be waived by the Organiser. <br><br>
-     GPR is not responsible for refund requests where the organizer/s have collected the payments directly.
+     GPR is not responsible for refund requests where the organizer/s has the collected the payments directly.
     </li>
+    </ul>
+    <br>
+
+    <ul><b><h1>For a refund claim, you can email, call, or visit the below address and submit your signed refund application. All the necessary details of the booking need to be provided along with the reason for the refund.:</h1></b></ul><br>
+    <ul><h4><b>Address:</b></h4>
+    <p><b>Green Planet Run</b>, Shilp Corporate Park B” - 206,207,208 Rajpath Rangoli Main Road, behind Rajpath Club,<br> off. S.G. Highway Bodakdev Ahmedabad, Gujarat 380054.</p>
+    <p>- Email: ask@greenplanetrun.com</p>
     </ul>
     <br>
 
@@ -439,14 +448,14 @@ const quickLinks04 = [
     <br>
     
     <ul>
-    <h2><b><u>LIABILITY LIMITS</u></b></h2>
+    <h2><b><u>LIABILITY LIMITS: LIMITATION OF LIABILITY:</u></b></h2>
     <li>⦿  GPR AND IT’S EMPLOYEES AND AFFILIATES INCLUDING DIRECTORS ARE NOT LIABLE FOR ANY DAMAGES OF ANY NATURE FOR LOST REVENUE, PROFITS, BUSINESS, INTERRUPTION, ETC. WITHOUT LIMITATION. 
     THE LIABILITY RELATING TO THE PLATFORM WILL BE LIMITED: <br><br>
-    <b>FOR ORGANIZER OF EVENTS: </b> <br><br>
-    - TO AN AMOUNT THE ORGANISER HAS PAID TO THE PLATFORM IN 12 MONTHS PRECEDING THE CLAIM. <br><br>
+    <b>FOR ORGANIZER OF EVENTS: </b> <br>
+    - TO AN AMOUNT THE ORGANISER HAS PAID TO THE PLATFORM IN 12 MONTHS PRECEDING THE CLAIM. <br>
     - THE AMOUNT PAID FOR MARKETING AND PLATFORM USAGE. <br><br>
-    <b>FOR USER:</b> <br><br>
-    -	AN AMOUNT PAID TOWARDS THE BOOKING FEE IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM. <br><br>
+    <b>FOR USER: DISCLAIMER OF WARRANTIES:</b> <br>
+    -	AN AMOUNT PAID TOWARDS THE BOOKING FEE IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM. <br>
     IN CASE WHERE THE JURISDICTIONS DO NOT PERMIT LIMITATION OF LIABILITY OR THE EXCLUSION OF IMPLIED WARRANTIES FOR CONSEQUENTIAL OR INCIDENTAL DAMAGES, THE PLATFORM LIABILITY WILL BE LIMITED TO THE GREATEST EXTENT PERMITTED BY LAW.
     </li>
     </ul>

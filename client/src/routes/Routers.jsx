@@ -1,5 +1,8 @@
 import Home from "../pages/Home";
 import About from "../pages/About";
+import BibExpo from "../pages/BibExpo";
+import RacedayInfo from "../pages/RacedayInfo";
+import RouteMaps from "../pages/RouteMaps";
 import Contact from "../pages/Contact";
 import Gallery from "../pages/Gallery";
 import Results from "../pages/Results";
@@ -27,6 +30,9 @@ const Routers = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/forgot-password" element={<Forgot />} />
       <Route path="/about" element={<About />} />
+      <Route path="/bib-expo" element={<BibExpo />} />
+      <Route path="/race-day-info" element={<RacedayInfo />} />
+      <Route path="/route-maps" element={<RouteMaps />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/gallery" element={<Gallery />} />
       <Route path="/results" element={<Results />} />

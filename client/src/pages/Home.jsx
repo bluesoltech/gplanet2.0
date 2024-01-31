@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ReactSwipe from "react-swipe";
 import { Link } from "react-router-dom";
-
 import Image1 from "../assets/images/Img1.jpg";
 import BannerL from "../assets/images/Banner_large.jpg";
 import BannerS from "../assets/images/Banner_small.jpg";
@@ -11,6 +10,8 @@ import Testimonial from "../components/Testimonial/Testimonial";
 import PlantIcon from "../components/Header/PlantIcon";
 import km5 from "../assets/images/5 KM Run.jpg";
 import km10 from "../assets/images/10 KM Run.jpg";
+import { CountDown } from "../components/CountDown/CountDown";
+
 const Home = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -106,7 +107,7 @@ const Home = () => {
       </div>
 
       {/* Hero  */}
-
+      <CountDown></CountDown>
       <section className="pt-[60px] 2xl:h-[800px]">
         <div className="container">
           <div className="flex flex-col lg:flex-row gap-[90px] items-center justify-between">

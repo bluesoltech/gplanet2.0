@@ -6,6 +6,7 @@ import logo3 from "../../assets/images/logo3.png";
 import { NavLink, Link } from "react-router-dom";
 import { BiMenu } from "react-icons/bi";
 import { authContext } from "../../context/AuthContext";
+// import { Dropdown } from 'primereact/dropdown'
 
 const navLinks = [
   {
@@ -15,6 +16,24 @@ const navLinks = [
   {
     path: "/about",
     display: "About",
+  },
+  {
+    path: "/bib-expo",
+    display: "Event_Information",
+    submenus: [
+      {
+        path: "/bib-expo",
+        display: "BIB Expo",
+      },
+      {
+        path: "/race-day-info",
+        display: "Race Day Info.",
+      },
+      {
+        path: "/route-maps",
+        display: "Route Maps",
+      },
+    ]
   },
   {
     path: "/gallery",
@@ -70,16 +89,43 @@ const Header = () => {
             <ul className="menu mx-5 flex items-center gap-[2.7rem]">
               {navLinks.map((link, index) => (
                 <li key={index}>
-                  <NavLink
-                    to={link.path}
-                    className={(navClass) =>
-                      navClass.isActive
-                        ? "text-primaryColor text-[16px] leading-7 font-[600]"
-                        : "text-textColor text-[16px] leading-7 font-[500] hover:text-primaryColor"
-                    }
-                  >
-                    {link.display}
-                  </NavLink>
+                  {link.submenus ? (
+                    <div className="relative group">
+                      <NavLink
+                        to={link.path}
+                        className={(navClass) =>
+                          navClass.isActive
+                            ? "text-primaryColor text-[16px] leading-7 font-[600]"
+                            : "text-textColor text-[16px] leading-7 font-[500] hover:text-primaryColor"
+                        }
+                      >
+                        {link.display}
+                      </NavLink>
+                      <ul className="absolute w-full hidden bg-white group-hover:block p-4 mt-1 shadow-md rounded-md z-[400]">
+                        {link.submenus.map((submenu, subIndex) => (
+                          <li key={subIndex}>
+                            <NavLink
+                              to={submenu.path}
+                              className="text-textColor text-[15px] h-[100px] font-[600] hover:text-primaryColor w-[500px]"
+                            >
+                              {submenu.display}
+                            </NavLink>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : (
+                    <NavLink
+                      to={link.path}
+                      className={(navClass) =>
+                        navClass.isActive
+                          ? "text-primaryColor text-[16px] leading-7 font-[600]"
+                          : "text-textColor text-[16px] leading-7 font-[500] hover:text-primaryColor"
+                      }
+                    >
+                      {link.display}
+                    </NavLink>
+                  )}
                 </li>
               ))}
             </ul>
