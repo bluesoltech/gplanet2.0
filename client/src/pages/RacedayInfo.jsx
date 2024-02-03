@@ -51,7 +51,7 @@ const PrizeMoney = () => {
             <h2 className='text-start mb-4 mt-3 text-[28px] font-normal'>Prize Money:</h2>
             <p>- Will be announced soon for 10KM Marathon</p>
             <p><strong className='text-blue-600/100'>Note:</strong> The prize money is applicable to Indian participants only.</p>
-            <p>- On Race Day, a victory ceremony will be conducted for the fastest 10K winners for men & women. (Results announced on race day are Provisional)</p>
+            <p>- On Race Day, a victory ceremony will be conducted for the fastest 10K winners for men & women.<br></br> (Results announced on race day are Provisional)</p>
             <p>- All winners will be announced on our website and on our Social Media Channels 7 working days post the event after verification of the document. They will be provided with their winner’s prizes 45 days from the finish of the event.</p>
             <p>- Prize winners declared may be required to submit further proof of identity/age as may be required by the Promoter for the cash prize which the Event Promoter may at its sole discretion withhold disbursement or disqualify the said participant from the competition.</p>
             <p>- On Investigation If the runners are found to have interchanged their running number bib and/or bib tag with others will not be entitled to any timing or prize money (where applicable). Such runners shall also be disqualified from future competitions.</p>

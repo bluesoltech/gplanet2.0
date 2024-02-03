@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
-import ReactSwipe from "react-swipe";
 import { Link } from "react-router-dom";
-import Image1 from "../assets/images/Img1.jpg";
-import BannerL from "../assets/images/Banner_large.jpg";
+// import Image1 from "../assets/images/Img1.jpg";
+import IMG11 from "../assets/images/IMG11.jpg";
+import IMG22 from "../assets/images/IMG22.jpg";
+import IMG33 from "../assets/images/IMG33.jpg";
+
+// import BannerL from "../assets/images/Banner_large.jpg";
+import BannerL from "../assets/images/Banner_largeNew.jpg";
 import BannerS from "../assets/images/Banner_small.jpg";
-import Image2 from "../assets/images/Img2.jpg";
-import Image3 from "../assets/images/Img3.jpg";
-import Testimonial from "../components/Testimonial/Testimonial";
-import PlantIcon from "../components/Header/PlantIcon";
-import km5 from "../assets/images/5 KM Run.jpg";
-import km10 from "../assets/images/10 KM Run.jpg";
+// import Image2 from "../assets/images/Img2.jpg";
+// import Image3 from "../assets/images/Img3.jpg";
+import km5 from "../assets/images/5 KM.jpg";
+import km10 from "../assets/images/10 KM.jpg";
 import { CountDown } from "../components/CountDown/CountDown";
 
 const Home = () => {
@@ -29,80 +31,14 @@ const Home = () => {
   }, []); // Empty dependency array ensures that this effect runs only once on mount
 
   const isMobile = windowWidth <= 768;
+
   return (
-    <>
+    <div>
       {/* Slider  */}
 
-      {/* <div className="hero_section  p-10">
-        <ReactSwipe
-          className="carousel w-full"
-          swipeOptions={{ continuous: true, auto: 5000, disableScroll: false }}
-          ref={(el) => (reactSwipeE1 = el)}
-        >
-          <div className="flex justify-center items-center 2xl:h-[800px] w-full">
-            <img src={Image1} className="max-w-full max-h-full rounded-2xl" />
-          </div>
-          <div className="flex justify-center items-center 2xl:h-[800px]">
-            <img src={Image2} className="max-w-full max-h-full rounded-2xl" />
-          </div>
-          <div className="flex justify-center items-center 2xl:h-[800px]">
-            <img src={Image3} className="max-w-full max-h-full rounded-2xl" />
-          </div>
-        </ReactSwipe>
-        <div className="flex items-center justify-center pt-5">
-          <button
-            type="button"
-            className="z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-            onClick={() => reactSwipeE1.prev()}
-          >
-            <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-400/30 group-hover:bg-white/50 dark:group-hover:bg-gray-400/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-400/70 group-focus:outline-none">
-              <svg
-                className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 6 10"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M5 1 1 5l4 4"
-                />
-              </svg>
-              <span className="sr-only">Previous</span>
-            </span>
-          </button>
-          <button
-            type="button"
-            className="z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-            onClick={() => reactSwipeE1.next()}
-          >
-            <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-400/30 group-hover:bg-white/50 dark:group-hover:bg-gray-400/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-400/70 group-focus:outline-none">
-              <svg
-                className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 6 10"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="m1 9 4-4-4-4"
-                />
-              </svg>
-              <span className="sr-only">Next</span>
-            </span>
-          </button>
-        </div>
-      </div> */}
       <div className="hero_section p-1 flex justify-center md:p-10 ">
         <Link to="https://allevents.by/23422580">
-          <img src={isMobile ? BannerS : BannerL} className="rounded-xl"></img>
+          <img loading="lazy"  src={isMobile ? BannerS : BannerL} className="rounded-xl"></img>
         </Link>
       </div>
 
@@ -117,7 +53,7 @@ const Home = () => {
                   Participate in The <br />
                   <span className="text-greenColor">
                     {" "}
-                    Green Planet Run 2.0!
+                    Green Planet Run 2.0
                   </span>
                 </h1>
                 <p className="text_para">
@@ -129,10 +65,7 @@ const Home = () => {
                   good for you, it keeps you physically and mentally fit.
                 </p>
 
-                {/* <Link to="/register">
-                  <button className="btn">Register</button>
-                </Link> */}
-                <Link to="https://allevents.by/23422580">
+                <Link to="/register">
                   <button className="btn">Register</button>
                 </Link>
               </div>
@@ -164,20 +97,21 @@ const Home = () => {
 
             <div className="flex gap-[30px] justify-end">
               <div>
-                <img
+                <img loading="lazy" 
                   className="h-auto w-[370px] rounded-xl"
-                  src={Image1}
+                  src={IMG11}
                   alt=""
                 />
               </div>
               <div className="mt-[30px]">
-                <img
-                  src={Image2}
+                <img loading="lazy" 
+                  src={IMG22}
                   alt=""
                   className="h-auto w-[270px] mb-[30px] rounded-xl hover: "
                 />
-                <img
-                  src={Image3}
+                <img loading="lazy" 
+                
+                  src={IMG33}
                   alt=""
                   className="h-auto w-[270px] rounded-xl"
                 />
@@ -189,97 +123,73 @@ const Home = () => {
 
       <div className="grid m-auto mt-[100px] max-w-[1240px] py-8 px-3 w-auto grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-0">
         <div className="sm:justify-center m-auto order-1 sm:order-2 md:order-2  flex-nowwrap">
-          <img
+          <img loading="lazy" 
+          
             src={km5}
-            className="h-auto  w-full flex justify-self-center  max-w-[370px]  rounded-3xl p-2"
+            className="h-auto w-full flex justify-self-center max-w-[370px]  rounded-3xl p-2"
             alt="Image2"
           />
         </div>
 
-        <div className="flex justify-center order-2 min-w-[360px] md:order-1 max-h-[350px] flex-wrap m-auto  pb-20">
+        <div className="flex justify-center order-2 min-w-[360px] md:order-1 max-h-[350px] flex-wrap m-auto pb-20">
           <h2 className="text-3xl">5&nbsp;KM Fun Run</h2>
 
-          <p className="mt-5 m-auto px-10 md:px-28">
-            An event organized Professionally in association with experienced
-            Marathoners. This specially carved Run is suited for all age groups.
-            Water, refreshments, medical support, and the team of volunteers
-            cheer the participants. T-shirts, Medals, Non-Time BIB, etc.
-          </p>
+          <div className="mt-2 m-auto px-10 text-[14px] text-justify md:px-12 lg:px-28 ">
+            5KM run typically refers to a running event or race with a total distance of 5 kilometers (approximately 3.1 miles).
+            This distance is a common choice for various running events, promoting fitness, fundraising, or community engagement.
+            Participants in a 5KM run cover the specified distance, and it's a popular distance for both casual runners and competitive athletes.
+            <br></br>
+            <p className="mt-2"><span className="font-bold">Participants will receive:</span> <br></br>T-shirts, Medals, Non-Time BIB, etc.</p>
+          </div>
+
           <div className="flex flex-col items-center">
-            <Link to="https://allevents.by/23422580">
+            <Link to="/register">
               <button class=" flex button mt-7">
-                <div class="top ">Register</div>
+                <div class="top">Register</div>
                 <div class="bottom">₹300</div>
               </button>
             </Link>
-            {/* <Link
-              onClick={(e) => {
-                e.preventDefault();
-                window.location.href = "/register";
-              }}
-            >
-              <button class=" flex button mt-7">
-                <div class="top ">Register</div>
-                <div class="bottom">₹300</div>
-              </button>
-            </Link> */}
+
             <p className="text-textColor text-[10px] text-center mt-2">
               Note: No Cash prizes for this category will be awarded
             </p>
           </div>
         </div>
 
-        <div className="flex justify-center m-auto sm:justify-center order-3 id h-auto  flex-nowwrap">
-          <img
+        <div className="flex justify-center mt-[60px] sm:justify-center order-3 id h-auto  flex-nowwrap">
+          <img loading="lazy" 
+          
             src={km10}
-            className="h-auto rounded-3xl p-2 flex justify-self-center  max-w-[370px] "
+            className="h-auto rounded-3xl p-2 flex justify-self-center max-w-[370px] "
             alt="Image3"
           />
         </div>
 
-        <div className="flex justify-center order-4 min-w-[360px] md:order-4 md:max-h-[350px] m-auto flex-wrap ">
+        <div className="flex justify-center order-4 min-w-[360px] md:order-4 md:max-h-[350px] mt-[60px] flex-wrap ">
           <h2 className="text-3xl">10&nbsp;KM Time Run</h2>
-          <p className=" px-10 md:px-28 m-auto mt-5">
-            This Run is for Joggers and athletes who practice regularly.
-            Different age categories are marked for this Run. Water,
-            refreshments, medical support, and the team of volunteers cheer the
-            participants. T-shirts, Medals, Prizes,Time BIB, etc.
-          </p>
+          <div className="px-10 md:px-12 lg:px-28 text-[14px] text-justify m-auto mt-3">
+            10KM run refers to a running event or race with a total distance of 10 kilometers, which is approximately 6.2 miles.
+            Similar to the 5KM run, the 10KM run is a popular distance for various running events, ranging from casual runs to competitive races.
+            It attracts participants of different fitness levels and is often used for fitness challenges,
+            fundraisers, and community events. Participants in a 10KM run cover the specified distance, challenging themselves.<br></br>
+            <p className="mt-2"><span className="font-bold">Participants will receive:</span> <br></br>T-shirts, Medals, Winner Prizes Money, Time BIB, etc.</p>
+          </div>
+
           <div className="flex flex-col items-center">
-            <Link to="https://allevents.by/23422580">
+            <Link to="/register">
               {" "}
               <button class=" flex mt-7  button">
                 <div class="top ">Register</div>
                 <div class="bottom">₹350</div>
               </button>
             </Link>
-            {/* <Link to="/register">
-              {" "}
-              <button class=" flex mt-7  button">
-                <div class="top ">Register</div>
-                <div class="bottom">₹350</div>
-              </button>
-            </Link> */}
             <p className="text-textColor text-[10px] text-center mt-2">
               Note: Cash prizes for this category will be announced soon
             </p>
           </div>
         </div>
       </div>
-
-      {/* Testimonial */}
-      <section className="">
-        <div className="container">
-          <div className="xl:w-[470px] mx-auto">
-            <h2 className="heading text-center">Our Past Participants</h2>
-            <p className="text_para text-center">
-              Green Planet Run was conducted on 13th November 2022
-            </p>
-          </div>
-          <Testimonial />
-        </div>
-      </section>
-    </>
+    </div>
   );
 };
 

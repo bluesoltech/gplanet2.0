@@ -42,25 +42,25 @@ const CountDown = () => {
 
         <div className="flex justify-center items-center">
             <div className="grid grid-cols-2 md:grid-cols-4 text-white text-center auto-cols-max">
-                <div className="w-[105px] bg-green-800 rounded-full m-2 sm:m-5">
+                <div className="w-[115px] bg-green-800 rounded-full m-2 sm:m-5 p-[5px]">
                     <span className="text-white-600 font-bold text-xl sm:text-5xl">
                         <span style={{ "--value": 15 }}>{timerDays}</span>
                     </span>
                     days
                 </div>
-                <div className="w-[100px] bg-green-800 rounded-full m-2 sm:m-5">
+                <div className="w-[100px] bg-green-800 rounded-full m-2 sm:m-5  p-[5px]">
                     <span className="text-white-600 font-bold text-xl sm:text-5xl">
                         <span style={{ "--value": 10 }}>{timerHours}</span>
                     </span>
                     hours
                 </div>
-                <div className="w-[100px] bg-green-800 rounded-full m-2 sm:m-5">
+                <div className="w-[100px] bg-green-800 rounded-full m-2 sm:m-5  p-[5px]">
                     <span className="text-white-600 font-bold text-xl sm:text-5xl">
                         <span style={{ "--value": 24 }}>{timerMinuts}</span>
                     </span>
                     min
                 </div>
-                <div className="w-[100px] bg-green-800 rounded-full m-2 sm:m-5">
+                <div className="w-[100px] bg-green-800 rounded-full m-2 sm:m-5  p-[5px]">
                     <span className="text-white-600 font-bold text-xl sm:text-5xl">
                         <span style={{ "--value": 50 }}>{timerSeconds}</span>
                     </span>

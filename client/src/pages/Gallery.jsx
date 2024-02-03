@@ -4,8 +4,8 @@ import ImageSlider from "../components/Gallery/ImageSlider";
 
 const Gallery = () => {
   return (
-    <div className="overflow-x-hidden ">
-      <Slogan comment="A healthy start to every day! I highly recommend these products, they do the trick" />
+    <div className="overflow-x-hidden">
+      <Slogan comment="Kickstart Your Mornings with a Boost! These products come highly recommended for a vibrant start!" />
       <ImageSlider />
     </div>
   );

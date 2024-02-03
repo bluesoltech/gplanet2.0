@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const OrganizerCard = ({ item }) => {
   return (
     <div className="py-[30px] px-3 lg:px-5 border-[1px] border-primaryColor">
-      <h2 className="text-[26px] leading-9 text-headingColor font-[700]">
+      <h2 className="text-[26px] leading-9 text-headingColor flex justify-center min-[320px]:text-center max-[600px] font-[700]">
         {item.name}
       </h2>
       <p className="text-[16px] leading-7 font-[400] text-textColor mt-4">
